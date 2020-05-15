@@ -5,6 +5,13 @@
 
 #include "DLA.h"
 
+DLA::DLA() {
+
+}
+DLA::~DLA() {
+
+}
+
 void DLA::setup() {
 
 	// ##### Settings

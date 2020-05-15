@@ -18,6 +18,7 @@
 #include "DomainWarping.h"
 #include "ShaderTest.h"
 
+
 Layer::Layer() {
 }
 Layer::~Layer() {
@@ -43,14 +44,9 @@ void Layer::setup(SceneType Type) {
 	scene = CreateScene(Type);
 	scene->setup();
 	params.add(scene->gui());
-
-	// Change scene button doesnt work yet
-	//changeScene(Scene_DiffLine);
-
-
 }
 
-ofParameterGroup Layer::gui()
+ofParameterGroup Layer::gui() // this function is useless isnt it ? shouldnt it be just completely virtual ?
 {
 	return params;
 }
@@ -65,16 +61,15 @@ void Layer::draw() {
 }
 
 /*
-void Layer::changeScene(SceneType Type) {
+void Layer::deleteScene() {
 	if (scene) delete scene;
-	scene = CreateScene(Type);
 }*/
 
 Layer *Layer::CreateScene(SceneType Type)
 {
+
 	switch (Type)
 	{
-
 	// ##### Defaults
 
 	case Scene_Default:

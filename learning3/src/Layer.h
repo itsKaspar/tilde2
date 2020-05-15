@@ -37,16 +37,15 @@ public:
 	// ##### Basic Functions
 
 	Layer();
-	~Layer();
+	virtual ~Layer();
 	virtual void setup();
 	virtual void setup(SceneType Type);
-	virtual ofParameterGroup gui();
+	virtual ofParameterGroup gui(); // should this have an = 0 and make it a completely virtual function since im not really using it here ?
 	virtual void update();
 	virtual void draw();
 
 	// ##### Factory Design Scene Change
 
-	void changeScene(SceneType Type);
 	static Layer *CreateScene(SceneType Type);
 
 	// ##### GUI Setup

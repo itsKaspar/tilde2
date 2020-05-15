@@ -40,13 +40,11 @@ void ofApp::setup(){
 
 	// ##### Setup All Layers && Their Params
 
-	// create 3 default scene
-	for (size_t i = 0; i < 3; i++)
+	for (size_t i = 0; i < 3; i++) // populate all 3 layers with empty objects
 	{
 		layers.push_back(Layer());
 	}
-
-	for (std::size_t i = 0; i != layers.size(); ++i)
+	for (size_t i = 0; i < layers.size(); i++) // put a default scene in each layer
 	{
 		layers[i].setup(Scene_Default);
 		mainGroup.add(layers[i].params);
@@ -71,11 +69,12 @@ void ofApp::update(){
 	// Play Drag & Dropped Video
 	//for (int v = 0; v < dropImage.size(); v++) dropVideo[v].update();
 
-	// update every scene
-	for (std::size_t i = 0; i != layers.size(); ++i)
+
+	for (size_t i = 0; i < layers.size(); i++) // update every layer
 	{
 		layers[i].update();
 	}
+
 }
 
 //--------------------------------------------------------------
@@ -92,6 +91,7 @@ void ofApp::draw(){
 		float h = 20 + i * (font.stringHeight(infoText[i]) + 5);
 		font.drawString(infoText[i], w , h);
 	}
+
 	for (size_t i = 0; i < layers.size(); i++)
 	{
 		string active = "";
@@ -103,14 +103,13 @@ void ofApp::draw(){
 		h += (font.stringHeight(infoText[0])) * infoText.size() + 20;
 		//h += +5 + (font.stringHeight(infoText[0]) + 5)
 		font.drawString(text, w, h);
-	}
+	} 
 
 
 	overlay.draw(); // Apply GUI graphic setting // this one draws the background so it has to be first ? but actually it doesnt have to be lol
 
 	// ##### Shaders
-
-	for (std::size_t i = 0; i != layers.size(); ++i)
+	for (size_t i = 0; i < layers.size(); i++) // draw every layer
 	{
 		layers[i].draw();
 	}
@@ -171,6 +170,11 @@ void ofApp::keyPressed(int key){
 	case ' ':
 		//text = "pressed space";
 		break;
+	case 'q':
+	{
+
+		break;
+	}
 	case 'p':
 	{
 		//text = "taking screenshot";
@@ -208,11 +212,12 @@ void ofApp::keyPressed(int key){
 }
 
 void ofApp::startScene(SceneType Type) {
-	layers[activeLayer-1] = Layer();
-	layers[activeLayer-1].setup(Type);
-	mainGroup.add(layers[activeLayer-1].params);
-	gui.setup(mainGroup);
 
+	mainGroup.remove(layers[activeLayer].params);
+	layers[activeLayer] = Layer();
+	layers[activeLayer].setup(Type);
+	mainGroup.add(layers[activeLayer].params);
+	gui.setup(mainGroup);
 }
 
 

@@ -18,7 +18,8 @@ class DLA : public Layer
 public:
 
 	// ##### Basic Functions
-
+	DLA();
+	~DLA();
 	void setup();
 	void update();
 	void draw();

@@ -73,6 +73,9 @@
     <ClCompile Include="src\Scenes\DefaultScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\LayerFactory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -164,6 +167,9 @@
     <ClInclude Include="src\Scenes\DefaultScene.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\LayerFactory.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
@@ -181,9 +187,6 @@
     <None Include="bin\data\shaders\DomainWarping\domainwarping.vert">
       <Filter>src</Filter>
     </None>
-    <None Include="bin\data\shaders\Noise\noise.glsl">
-      <Filter>src</Filter>
-    </None>
     <None Include="bin\data\shaders\ShaderTest\shaderTest.frag">
       <Filter>src</Filter>
     </None>
@@ -197,6 +200,12 @@
       <Filter>src</Filter>
     </None>
     <None Include="bin\data\shaders\SimplexTerrain\simplexTerrain.vert">
+      <Filter>src</Filter>
+    </None>
+    <None Include="bin\data\shaders\Noise\perlin.glsl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="bin\data\shaders\Noise\simplex.glsl">
       <Filter>src</Filter>
     </None>
   </ItemGroup>

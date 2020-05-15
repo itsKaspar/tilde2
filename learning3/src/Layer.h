@@ -1,7 +1,9 @@
 
-// ###### 
-// ###### Layer System
-// ###### Kaspar Ravel - 2020
+// ##### Layer Class
+// #####
+// ##### The Layer class is parent to every class in the Scenes folder
+// ##### It creates a sort of wrapper with parameters common to every scene
+// ##### Things like opacity, color palette, etc
 
 #pragma once
 
@@ -40,7 +42,7 @@ public:
 	virtual ~Layer();
 	virtual void setup();
 	virtual void setup(SceneType Type);
-	virtual ofParameterGroup gui();
+	virtual ofParameterGroup gui(); 
 	virtual void update();
 	virtual void draw();
 

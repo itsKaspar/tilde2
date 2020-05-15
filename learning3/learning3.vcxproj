@@ -190,6 +190,7 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="src\Layer.cpp" />
+    <ClCompile Include="src\LayerFactory.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Overlay.cpp" />
@@ -218,6 +219,7 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="src\Layer.h" />
+    <ClInclude Include="src\LayerFactory.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Overlay.h" />
     <ClInclude Include="src\Scenes\DefaultScene.h" />
@@ -251,7 +253,8 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <None Include="bin\data\shaders\DomainWarping\domainwarping.vert" />
     <None Include="bin\data\shaders\Julia2D\shader.frag" />
     <None Include="bin\data\shaders\Julia2D\shader.vert" />
-    <None Include="bin\data\shaders\Noise\noise.glsl" />
+    <None Include="bin\data\shaders\Noise\perlin.glsl" />
+    <None Include="bin\data\shaders\Noise\simplex.glsl" />
     <None Include="bin\data\shaders\ShaderTest\shaderTest.frag" />
     <None Include="bin\data\shaders\ShaderTest\shaderTest.vert" />
     <None Include="bin\data\shaders\SimplexTerrain\simplexTerrain.frag" />

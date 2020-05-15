@@ -22,6 +22,8 @@ public:
 	void update();
 	void draw();
 
+	static Layer * __stdcall Create() { return new Julia2D(); }
+
 	// ##### GUI Setup
 
 	ofParameterGroup gui();

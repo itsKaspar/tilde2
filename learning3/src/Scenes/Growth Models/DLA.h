@@ -24,6 +24,8 @@ public:
 	void update();
 	void draw();
 
+	static Layer * __stdcall Create() { return new DLA(); }
+
 	// ##### GUI Setup
 
 	ofParameterGroup gui();

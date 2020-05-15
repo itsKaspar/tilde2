@@ -20,7 +20,7 @@ DLA::DLA() {
 
 }
 DLA::~DLA() {
-
+	delete this;
 }
 
 void DLA::setup() {

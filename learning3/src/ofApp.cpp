@@ -41,7 +41,7 @@ void ofApp::setup(){
 	}
 	for (size_t i = 0; i < layers.size(); i++) // put a default scene in each layer
 	{
-		layers[i].setup();
+		layers[i].setup(Scene_Default);
 		mainGroup.add(layers[i].params);
 	}
 
@@ -171,11 +171,12 @@ void ofApp::keyPressed(int key){
 	}
 	case 'f':
 		ofToggleFullscreen();
-		fbo.allocate(ofGetWidth(), ofGetHeight()); // reallocate buffer for FBO // MAYBe SHOULD MAKE A SMALL FUNCTION OUT OF THIS SINCE USE EVERY TIME TIME WE RESIZE AND IN SETUP ?
+		fbo.allocate(ofGetWidth(), ofGetHeight());
 		fbo.begin();
 		ofClear(255);
 		fbo.end();
 		break;
+
 	case 'z': startScene(Scene_DiffLine); break;
 	case 'x': startScene(Scene_DLA); break;
 	case 'c': startScene(Scene_Boids); break;
@@ -196,15 +197,15 @@ void ofApp::keyPressed(int key){
 	}
 }
 
+// ###### Start Scene and Delete Old one Before
 
 void ofApp::startScene(SceneType Type) {
 	mainGroup.remove(layers[activeLayer-1].params);
 	layers[activeLayer-1] = Layer();
-	layers[activeLayer-1].setup();
+	layers[activeLayer-1].setup(Type);
 	mainGroup.add(layers[activeLayer-1].params);
 	gui.setup(mainGroup);
 }
-
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
@@ -252,9 +253,7 @@ void ofApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
 	// # Drag and Drop Sound // Images // Videos
-
 	if (dragInfo.files.size() > 0)
 	{
 		dropSound.assign(dragInfo.files.size(), ofSoundPlayer());

@@ -20,7 +20,7 @@
 
 
 Layer::Layer() {
-	gui();
+		gui();
 }
 Layer::~Layer() {
 }
@@ -30,7 +30,6 @@ void Layer::setup() {
 }
 
 void Layer::setup(SceneType Type) {
-
 	// Start Simulation
 	scene = CreateScene(Type);
 	scene->setup();
@@ -44,7 +43,7 @@ ofParameterGroup Layer::gui()
 	params.add(layer.set("Layer", 1, 1, 5));
 	params.add(blendMode.set("Blend Mode", 1, 1, 4));
 	params.add(opacity.set("Opacity", 255, 0, 255)); // ADD THIS : make it so that if opacity is 0 it doesn't even draw to save some memory
-	params.add(xSpeed.set("Speed", 1.0, 0.25, 4.0)); // ADD THIS : 	button to double or halve speed
+	params.add(xSpeed.set("Speed", 1.0, 0.25, 4.0)); // ADD THIS : button to double or halve speed
 	params.add(restart.set("Restart", false));
 	params.add(color1.set(ofColor::white));
 	return params;

@@ -14,8 +14,10 @@ void ofApp::setup(){
 	// cam.setDistance(200);
 
 	font.load("OpenSans-Light.ttf", 10);
-	infoText.push_back("i'll take you somewhere nice");
-	infoText.push_back("Kaspar Ravel");
+	infoText.push_back("1,2,3 to select active layer");
+	infoText.push_back("z,x,c,v,.. to start simulations");
+	//infoText.push_back("take you somewhere nice");
+	//infoText.push_back("Kaspar Ravel");
 
 	// webcam.setup(640, 480);
 
@@ -211,12 +213,12 @@ void ofApp::keyPressed(int key){
 	}
 }
 
-void ofApp::startScene(SceneType Type) {
 
-	mainGroup.remove(layers[activeLayer].params);
-	layers[activeLayer] = Layer();
-	layers[activeLayer].setup(Type);
-	mainGroup.add(layers[activeLayer].params);
+void ofApp::startScene(SceneType Type) {
+	mainGroup.remove(layers[activeLayer-1].params);
+	layers[activeLayer-1] = Layer();
+	layers[activeLayer-1].setup(Type);
+	mainGroup.add(layers[activeLayer-1].params);
 	gui.setup(mainGroup);
 }
 

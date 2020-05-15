@@ -36,6 +36,8 @@ public:
 
 	// ##### Basic Functions
 
+	Layer();
+	~Layer();
 	virtual void setup();
 	virtual void setup(SceneType Type);
 	virtual ofParameterGroup gui();

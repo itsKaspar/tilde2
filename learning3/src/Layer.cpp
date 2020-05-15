@@ -1,21 +1,27 @@
 
-// ###### 
-// ###### Layer System
-// ###### Kaspar Ravel - 2020
+// ##### Layer Class
+// #####
+// ##### The Layer class is parent to every class in the Scenes folder
+// ##### It creates a sort of wrapper with parameters common to every scene
+// ##### Things like opacity, color palette, etc
 
 #include "Layer.h"
 
-#include "DefaultScene.h"
+// ##### Scene Headers Includes
 
+#include "DefaultScene.h"
 #include "DLA.h"
 #include "Diffline.h"
 #include "Boids.h"
-
-// ##### Shaders
 #include "SimplexTerrain.h"
 #include "Julia2D.h"
 #include "DomainWarping.h"
 #include "ShaderTest.h"
+
+Layer::Layer() {
+}
+Layer::~Layer() {
+}
 
 void Layer::setup() {
 	setup(Scene_Default);

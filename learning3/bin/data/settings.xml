@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<group>
+	<int_slider>22</int_slider>
+	<float_slider>64.5</float_slider>
+	<toggle>1</toggle>
+	<int_field>100</int_field>
+	<float_field>100</float_field>
+	<text_field>text</text_field>
+	<vec2_slider>0, 0</vec2_slider>
+	<vec3_slider>0, 0, 0</vec3_slider>
+	<vec4_slider>0, 0, 0, 0</vec4_slider>
+	<color_of_things>80</color_of_things>
+	<color_of_background>127</color_of_background>
+	<Target_FPS>134</Target_FPS>
+	<color_1>0</color_1>
+	<color_2>255</color_2>
+	<opacity>240</opacity>
+	<Fill>0</Fill>
+	<Main_Settings>
+		<FPS>120</FPS>
+		<Background_Color>230</Background_Color>
+		<fill>0</fill>
+	</Main_Settings>
+	<Scene_Settings>
+		<Layer>1</Layer>
+		<Blend_Mode>1</Blend_Mode>
+		<Opacity>255</Opacity>
+		<Speed>1</Speed>
+		<Restart>0</Restart>
+		<Color_1>0</Color_1>
+		<DLA>
+			<Stickiness>0.5</Stickiness>
+			<Towards_Aggregation>0</Towards_Aggregation>
+			<Display_Walkers>1</Display_Walkers>
+		</DLA>
+	</Scene_Settings>
+</group>

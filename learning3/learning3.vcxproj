@@ -245,7 +245,9 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\data\shaders\DefaultScene\defaultScene.frag" />
-    <None Include="bin\data\shaders\DomainWarping\domainwarping.frag" />
+    <None Include="bin\data\shaders\DomainWarping\domainwarping.frag">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
     <None Include="bin\data\shaders\DomainWarping\domainwarping.vert" />
     <None Include="bin\data\shaders\Julia2D\shader.frag" />
     <None Include="bin\data\shaders\Julia2D\shader.vert" />

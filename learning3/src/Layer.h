@@ -40,7 +40,7 @@ public:
 	virtual ~Layer();
 	virtual void setup();
 	virtual void setup(SceneType Type);
-	virtual ofParameterGroup gui(); // should this have an = 0 and make it a completely virtual function since im not really using it here ?
+	virtual ofParameterGroup gui();
 	virtual void update();
 	virtual void draw();
 
@@ -56,7 +56,7 @@ public:
 	ofParameter<int> opacity;
 	ofParameter<float> xSpeed;
 	ofParameter<bool> restart;
-	ofParameter<int> color1;
+	ofParameter<ofColor> color1;
 
 	// Other Variables
 

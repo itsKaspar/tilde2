@@ -8,10 +8,16 @@ ofApp::~ofApp() {
 
 void ofApp::setup(){
 
-	activeLayer = 1;
+	// Loading Things
 
 	// Easycam Setup
 	// cam.setDistance(200);
+	// webcam.setup(640, 480);
+
+	// ##### OF Settings
+
+	//ofEnableSmoothing(); // only affects lines
+	//ofSetCircleResolution(50); // only affect circles
 
 	font.load("OpenSans-Light.ttf", 10);
 	infoText.push_back("1,2,3 to select active layer");
@@ -19,28 +25,15 @@ void ofApp::setup(){
 	//infoText.push_back("take you somewhere nice");
 	//infoText.push_back("Kaspar Ravel");
 
-	// webcam.setup(640, 480);
-
-	// ##### FBO Initiation
-
-	//image.load("testa.jpg");
-	//fbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
-	//fbo.begin();
-	//ofClear(255);
-	//fbo.end();
-	
-	// ##### Drawing Settings
-
-	//ofEnableSmoothing(); // only affects lines
-	//ofSetCircleResolution(50); // only affect circles
-
-
-	// ##### Main GUI Setup + add params
+	// ##### Main GUI Setup
 
 	overlay.setup(); 
 	mainGroup.add(overlay.params);
 
-	// ##### Setup All Layers && Their Params
+	// ##### Layer System
+	// ##### initiating layers + their params
+
+	activeLayer = 1;
 
 	for (size_t i = 0; i < 3; i++) // populate all 3 layers with empty objects
 	{
@@ -48,7 +41,7 @@ void ofApp::setup(){
 	}
 	for (size_t i = 0; i < layers.size(); i++) // put a default scene in each layer
 	{
-		layers[i].setup(Scene_Default);
+		layers[i].setup();
 		mainGroup.add(layers[i].params);
 	}
 
@@ -59,20 +52,23 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	// ##### First : Overlay Update
-	overlay.update(); 
 
 	//webcam.update();
-	//rotate++;
 
-	// Fullscreen toggle doesn't work with keyboard f for fullscreen
-	//if (fullScreenToggle) ofSetFullscreen(true); else ofSetFullscreen(false);
+	// ##### Main GUI Update
 
-	// Play Drag & Dropped Video
+	overlay.update(); 
+
+	// # Fullscreen toggle doesn't work with keyboard f for fullscreen
+	// if (fullScreenToggle) ofSetFullscreen(true); else ofSetFullscreen(false);
+
+	// # Play Drag & Dropped Video
 	//for (int v = 0; v < dropImage.size(); v++) dropVideo[v].update();
 
+	// ##### Layer System
+	// ##### update very layer
 
-	for (size_t i = 0; i < layers.size(); i++) // update every layer
+	for (size_t i = 0; i < layers.size(); i++)
 	{
 		layers[i].update();
 	}
@@ -82,17 +78,20 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	// ##### Info Text
+	// ##### Information Display
 
 	ofSetColor(50); // Main Color
 
-	//ofDrawBitmapString(activeLayerInfo, ofGetWidth() - 70, 20);
+	// # Display General Info 
+
 	for (size_t i = 0; i < infoText.size(); i++)
 	{
 		float w = ofGetWidth() - font.stringWidth(infoText[i]) - 10;
 		float h = 20 + i * (font.stringHeight(infoText[i]) + 5);
 		font.drawString(infoText[i], w , h);
 	}
+
+	// # Display Layer Info
 
 	for (size_t i = 0; i < layers.size(); i++)
 	{
@@ -107,16 +106,19 @@ void ofApp::draw(){
 		font.drawString(text, w, h);
 	} 
 
+	// ##### Main GUI Draw
 
-	overlay.draw(); // Apply GUI graphic setting // this one draws the background so it has to be first ? but actually it doesnt have to be lol
+	overlay.draw(); 
 
-	// ##### Shaders
+	// ##### Layer System
+	// ##### draw every layer
+
 	for (size_t i = 0; i < layers.size(); i++) // draw every layer
 	{
 		layers[i].draw();
 	}
 
-	// ##### Main GUI Draw
+	// ##### Main GUI Draw ( wait why do I have two of these again ?)
 
 	gui.draw();
 
@@ -128,13 +130,11 @@ void ofApp::draw(){
 
 	// Webcam 
 	//webcam.draw((ofGetWidth() / 2) - 360, (ofGetHeight() / 2) - 240, 360, 240);
-	// Text
-
 
 	// EasyCam Begin
 	//cam.begin();
 
-	// ##### DRAW THINGS IN 3D SPACE
+	// ##### Examples of Drawing things in 3D space
 
 	// Rotating tests
 	//ofRotateXRad(ofDegToRad(rotate));
@@ -148,19 +148,7 @@ void ofApp::draw(){
 	// Drag and Drop Image && Video
 	//for (int i = 0; i < dropImage.size(); i++) dropImage[i].draw(0 - dropImage[i].getWidth() / 2, 0 - dropImage[i].getHeight() / 2);
 	//for (int v = 0; v < dropImage.size(); v++) dropVideo[v].draw(0 - dropVideo[v].getWidth() / 2, 0 - dropVideo[v].getHeight() / 2);
-
-	// ##### END OF DRAWING THINGS IN 3D SPACE
-
-
-	// fbo tutorial
 	
-	//fbo.draw(0, 0);
-
-	//fbo.begin();
-
-	//fbo.end();
-	
-
 	// EasyCam End
 	//cam.end();
 }
@@ -170,13 +158,8 @@ void ofApp::keyPressed(int key){
 	switch (key)
 	{
 	case ' ':
-		//text = "pressed space";
+		// used for testing things
 		break;
-	case 'q':
-	{
-
-		break;
-	}
 	case 'p':
 	{
 		//text = "taking screenshot";
@@ -217,7 +200,7 @@ void ofApp::keyPressed(int key){
 void ofApp::startScene(SceneType Type) {
 	mainGroup.remove(layers[activeLayer-1].params);
 	layers[activeLayer-1] = Layer();
-	layers[activeLayer-1].setup(Type);
+	layers[activeLayer-1].setup();
 	mainGroup.add(layers[activeLayer-1].params);
 	gui.setup(mainGroup);
 }
@@ -236,22 +219,11 @@ void ofApp::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
 
-	/*
-	fbo.begin();
-	ofSetColor(255);
-	ofDrawCircle(x, y, 16);
-	//image.draw(x,y,40,40);
-	fbo.end();
-	*/
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-	if (button == 0) {
-		// pressed left mouse button
-		size = ofRandom(16, 50);
-	}
-	polyline.addVertex(ofPoint(x, y));
+
 }
 
 //--------------------------------------------------------------
@@ -280,7 +252,9 @@ void ofApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
-	// Drag and Drop Sound // Images // Videos
+
+	// # Drag and Drop Sound // Images // Videos
+
 	if (dragInfo.files.size() > 0)
 	{
 		dropSound.assign(dragInfo.files.size(), ofSoundPlayer());

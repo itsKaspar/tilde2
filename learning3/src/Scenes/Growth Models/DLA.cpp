@@ -5,6 +5,17 @@
 
 #include "DLA.h"
 
+ofParameterGroup DLA::gui() {
+
+	// ##### GUI Setup
+	params.setName("DLA");
+	params.add(sticky.set("Stickiness", 0.5, 0.0, 1.0));
+	params.add(towardsAggregation.set("Towards Aggregation", 0.0, 0.0, 1));
+	params.add(displayWalkers.set("Display Walkers", true));
+
+	return params;
+}
+
 DLA::DLA() {
 
 }
@@ -102,13 +113,3 @@ void DLA::draw() {
 	}
 }
 
-ofParameterGroup DLA::gui() {
-
-	// ##### GUI Setup
-	params.setName("DLA");
-	params.add(sticky.set("Stickiness", 0.5, 0.0, 1.0));
-	params.add(towardsAggregation.set("Towards Aggregation", 0.0, 0.0, 1));
-	params.add(displayWalkers.set("Display Walkers", true));
-
-	return params;
-}

@@ -35,10 +35,10 @@ void ofApp::setup(){
 
 	activeLayer = 1;
 
-	for (size_t i = 0; i < 3; i++) // populate all 3 layers with empty objects
-	{
+	//for (size_t i = 0; i < 1; i++) // populate all 3 layers with empty objects
+	//{
 		layers.push_back(Layer());
-	}
+	//}
 	for (size_t i = 0; i < layers.size(); i++) // put a default scene in each layer
 	{
 		layers[i].setup(Scene_Default);
@@ -184,6 +184,7 @@ void ofApp::keyPressed(int key){
 	case 'b': startScene(Scene_Julia2D); break;
 	case 'n': startScene(Scene_SimplexTerrain); break;
 	case 'm': startScene(Scene_DomainWarping); break;
+	case ',': startScene(Scene_SpaceColonization); break;
 	case '1':	activeLayer = 1; break;
 	case '2':	activeLayer = 2; break;
 	case '3':	activeLayer = 3; break;

@@ -117,7 +117,7 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Shader Experimentations;C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models\SpaceColonization;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Shader Experimentations;C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -199,6 +199,10 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClCompile Include="src\Scenes\Growth Models\DLA.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\Node.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\RandomWalker.cpp" />
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.cpp" />
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.cpp" />
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCTree.cpp" />
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Boids.cpp" />
     <ClCompile Include="src\Scenes\Shader Experimentations\DomainWarping.cpp" />
     <ClCompile Include="src\Scenes\Shader Experimentations\Julia2D.cpp" />
@@ -227,6 +231,10 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClInclude Include="src\Scenes\Growth Models\DLA.h" />
     <ClInclude Include="src\Scenes\Growth Models\Node.h" />
     <ClInclude Include="src\Scenes\Growth Models\RandomWalker.h" />
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.h" />
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.h" />
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCTree.h" />
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Boids.h" />
     <ClInclude Include="src\Scenes\Shader Experimentations\DomainWarping.h" />
     <ClInclude Include="src\Scenes\Shader Experimentations\Julia2D.h" />

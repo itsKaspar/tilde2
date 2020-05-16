@@ -76,6 +76,18 @@
     <ClCompile Include="src\LayerFactory.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCTree.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -168,6 +180,18 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\LayerFactory.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCTree.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

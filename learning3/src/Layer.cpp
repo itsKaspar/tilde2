@@ -12,11 +12,13 @@
 #include "DefaultScene.h"
 #include "DLA.h"
 #include "Diffline.h"
+#include "SpaceColonization.h"
 #include "Boids.h"
 #include "SimplexTerrain.h"
 #include "Julia2D.h"
 #include "DomainWarping.h"
 #include "ShaderTest.h"
+
 
 
 Layer::Layer() {
@@ -80,9 +82,10 @@ Layer *Layer::CreateScene(SceneType Type)
 
 	case Scene_DLA:
 		return new DLA();
-		
 	case Scene_DiffLine:
 		return new DiffLine();
+	case Scene_SpaceColonization:
+		return new SpaceColonization();
 
 	// ##### Particle Systems
 

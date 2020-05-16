@@ -21,6 +21,7 @@ enum SceneType
 	// Growth Models
 	Scene_DiffLine,
 	Scene_DLA,
+	Scene_SpaceColonization,
 
 	// Particle Systems
 	Scene_Boids,

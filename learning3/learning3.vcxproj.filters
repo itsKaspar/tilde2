@@ -88,6 +88,9 @@
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Helpers\Octree.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -192,6 +195,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Helpers\Octree.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

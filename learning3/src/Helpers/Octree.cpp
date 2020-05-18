@@ -13,7 +13,7 @@ Octree::Octree(ofVec3f p, float s, bool r) {
 	pos = p;
 	size = s;
 	isRoot = r;
-	capacity = 1;
+	capacity = 5;
 	subdivided = false;
 
 }

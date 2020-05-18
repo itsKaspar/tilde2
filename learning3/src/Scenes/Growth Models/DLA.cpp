@@ -8,16 +8,16 @@
 ofParameterGroup DLA::gui() {
 
 	// ##### GUI Setup
+
 	params.setName("DLA");
 	params.add(sticky.set("Stickiness", 0.5, 0.0, 1.0));
 	params.add(towardsAggregation.set("Towards Aggregation", 0.0, 0.0, 1));
 	params.add(displayWalkers.set("Display Walkers", true));
-
 	return params;
 }
 
 DLA::DLA() {
-
+	octree = new Octree(ofVec3f(ofGetWidth()/2, ofGetHeight(),0), ofGetWidth()*2, true);
 }
 DLA::~DLA() {
 	delete this;
@@ -29,17 +29,21 @@ void DLA::setup() {
 
 	spawn = "random";
 	walkerQty = 500;
-	walkerWalk = 1;
+	walkerWalk = 2;
 	sticky = 1;
 
 	// ##### Spawn Initial Dead
-
-	fixed.push_back(RandomWalker(ofGetWidth() / 2, ofGetHeight() / 2, 0, 0, 1));
+	// random color interpol
+	float rndColorInterpol = ofRandom(0, 1);
+	fixed.push_back(RandomWalker(ofGetWidth() / 2, ofGetHeight() / 2, 0, 0, 1, rndColorInterpol));
+	octree->insert(ofVec2f(ofGetWidth() / 2, ofGetHeight() / 2)); // insert first one into octree
 
 	// ##### Spawn First lot of Walkers
 
 	for (int i = 0; i < walkerQty; i++) {
-		walkers.push_back(RandomWalker(spawn, walkerWalk, sticky));
+		// random color interpol
+		float rndColorInterpol = ofRandom(0, 1);
+		walkers.push_back(RandomWalker(spawn, walkerWalk, sticky, rndColorInterpol));
 	}
 }
 
@@ -49,7 +53,9 @@ void DLA::update() {
 
 	while (walkers.size() < walkerQty)
 	{
-		walkers.push_back(RandomWalker(spawn, walkerWalk, sticky));
+		// random color interpol
+		float rndColorInterpol = ofRandom(0, 1);
+		walkers.push_back(RandomWalker(spawn, walkerWalk, sticky, rndColorInterpol));
 	}
 
 	// ##### Update Position
@@ -74,7 +80,10 @@ void DLA::update() {
 
 	for (std::size_t i = walkers.size() - 1; i != -1; --i)
 	{
-		for (std::size_t j = fixed.size() - 1; j != -1; --j) // go through every fixed/dead particles
+		// find which particle is in range 
+		vector<ofVec3f> found = octree->queryInRadius(walkers[i].position, walkers[i].radius * 2 + 1);
+
+		for (std::size_t j = found.size() - 1; j != -1; --j) // go through every fixed/dead particles
 		{
 			// Calculate chance to stick
 			bool stick;
@@ -83,13 +92,15 @@ void DLA::update() {
 			else {stick = false;}
 
 			// Calculate Distance
-			float distance = walkers[i].position.distance(fixed[j].position); // calculate the distance between them
+			float distance = walkers[i].position.distance(found[j]); // calculate the distance between them
 
-			if (distance < (walkers[i].radius + fixed[j].radius) && stick) // if the distance is small enough
+			if (distance < (walkers[i].radius * 2) && stick) // if the distance is small enough
 			{
 				walkers[i].randomWalk = 0; // make it dead
 				fixed.push_back(walkers[i]); // put it in the fixed/dead vector
+				octree->insert(walkers[i].position); // insert into octree
 				walkers.erase(walkers.begin() + i); // take it out from the main alive vector
+
 				break;
 			}
 		}
@@ -98,18 +109,25 @@ void DLA::update() {
 
 void DLA::draw() {
 
+	//octree->draw(c1, c2);
 
 	if (displayWalkers)
 	{
 		for (std::size_t i = 0; i != walkers.size(); ++i)
 		{
+			ofSetColor(ofColor(c1.r,c1.g,c1.b).lerp(ofColor(c2.r, c2.g, c2.b), walkers[i].ci),opacity);
+			//ofSetColor(c1.lerp(c2,walkers[i].ci), opacity);
 			ofDrawCircle(walkers[i].position.x, walkers[i].position.y, walkers[i].radius);
 		}
 	}
 
 	for (std::size_t i = 0; i != fixed.size(); ++i)
 	{
+		ofSetColor(ofColor(c1.r, c1.g, c1.b).lerp(ofColor(c2.r, c2.g, c2.b), fixed[i].ci),opacity);
 		ofDrawCircle(fixed[i].position.x, fixed[i].position.y, fixed[i].radius);
 	}
 }
 
+void DLA::setColor1(ofColor color1) { c1 = color1; }
+void DLA::setColor2(ofColor color2) { c2 = color2;  }
+void DLA::setOpacity(int o) { opacity = o; }

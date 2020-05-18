@@ -117,7 +117,7 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models\SpaceColonization;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Shader Experimentations;C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Helpers;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models\SpaceColonization;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Shader Experimentations;C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -191,7 +191,7 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="src\Helpers\Octree.cpp" />
     <ClCompile Include="src\Layer.cpp" />
-    <ClCompile Include="src\LayerFactory.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Overlay.cpp" />
@@ -225,7 +225,7 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="src\Helpers\Octree.h" />
     <ClInclude Include="src\Layer.h" />
-    <ClInclude Include="src\LayerFactory.h" />
+    <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Overlay.h" />
     <ClInclude Include="src\Scenes\DefaultScene.h" />

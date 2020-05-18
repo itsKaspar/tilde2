@@ -8,8 +8,8 @@
 class RandomWalker
 {
 public:
-	RandomWalker(float x, float y, float z, float walk, float stick);
-	RandomWalker(string spawn, float walk, float stick);
+	RandomWalker(float x, float y, float z, float walk, float stick, float colorInterpol);
+	RandomWalker(string spawn, float walk, float stick, float colorInterpol);
 	void update();
 	void debugDraw();
 	void applyForce(ofVec3f force);
@@ -17,6 +17,7 @@ public:
 
 	ofVec3f position;
 	ofVec3f velocity;
+	float ci; // color interpolation
 
 	float randomWalk;
 	float radius;

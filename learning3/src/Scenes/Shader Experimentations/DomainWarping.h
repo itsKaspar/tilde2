@@ -10,9 +10,9 @@
 
 #include "ofMain.h" 
 #include "ofxGui.h"
-#include "Layer.h"
+#include "Scene.h"
 
-class DomainWarping : public Layer
+class DomainWarping : public Scene
 {
 public:
 

@@ -10,11 +10,11 @@
 
 #include "ofMain.h" 
 #include "ofBaseApp.h" // Can I delete this call ?
-#include "Layer.h"
+#include "Scene.h"
 #include "ofxGui.h"
 
 
-class SimplexTerrain : public Layer
+class SimplexTerrain : public Scene
 {
 public:
 

@@ -10,9 +10,9 @@
 
 #include "ofMain.h" 
 #include "ofxGui.h"
-#include "Layer.h"
+#include "Scene.h"
 
-class Julia2D : public Layer
+class Julia2D : public Scene
 {
 public:
 
@@ -22,7 +22,7 @@ public:
 	void update();
 	void draw();
 
-	static Layer * __stdcall Create() { return new Julia2D(); }
+	//static Layer * __stdcall Create() { return new Julia2D(); }
 
 	// ##### GUI Setup
 

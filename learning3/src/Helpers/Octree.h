@@ -27,7 +27,6 @@ public:
 	void subdivide(ofVec3f p); // takes center of this octree
 
 	int getNumPoints();
-	void showArchitecture(int i);
 
 	vector<ofVec3f> Octree::queryInRadius(ofVec3f p, float r);
 

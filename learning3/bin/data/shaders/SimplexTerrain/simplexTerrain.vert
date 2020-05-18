@@ -1,6 +1,7 @@
 #version 150
 #pragma include "../../shaders/noise/simplex.glsl"
-/*
+
+
 uniform mat4 modelViewProjectionMatrix;
 
 in vec4 position;
@@ -45,5 +46,3 @@ void main(){
     gl_Position = modelViewProjectionMatrix * pos;
 }
 
-
-*/

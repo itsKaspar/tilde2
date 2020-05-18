@@ -1,13 +1,10 @@
 #version 150
 #pragma include "../../shaders/noise/perlin.glsl"
 
-/*
 uniform vec4 globalColor;
 out vec4 outputColor;
 uniform float time;
 in vec2 varyingtexcoord;
-
-
 
 float fbm( in vec2 x, in float H )
 {    
@@ -47,4 +44,3 @@ void main()
 
 	outputColor = vec4(col, 1);
 }
-*/

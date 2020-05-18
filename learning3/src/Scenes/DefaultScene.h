@@ -10,9 +10,9 @@
 
 #include "ofMain.h" 
 #include "ofxGui.h"
-#include "Layer.h"
+#include "Scene.h"
 
-class DefaultScene : public Layer
+class DefaultScene : public Scene
 {
 public:
 

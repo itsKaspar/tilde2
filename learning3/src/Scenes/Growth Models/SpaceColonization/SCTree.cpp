@@ -79,7 +79,6 @@ void SCTree::grow() {
 			}
 			else if ((closest == -1) || ( d < record)) // if a branch hasnt been found
 			{
-				cout << "debug" << endl;
 				closest = j; // get index of closest branch
 				closestDir = dir;
 				record = d;

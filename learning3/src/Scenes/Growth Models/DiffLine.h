@@ -10,10 +10,10 @@
 
 #include "ofMain.h" 
 #include "ofxGui.h"
-#include "Layer.h"
+#include "Scene.h"
 #include "Node.h"
 
-class DiffLine : public Layer
+class DiffLine : public Scene
 {
 public: 
 

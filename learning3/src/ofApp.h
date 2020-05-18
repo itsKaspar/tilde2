@@ -4,6 +4,9 @@
 #include "ofxGui.h" // maybe we can take this one out now that my voerlay is a class ?
 #include "Overlay.h"
 #include "Layer.h"
+#include "DLA.h"
+
+#define NUMLAYERS 3
 
 class ofApp : public ofBaseApp{
 
@@ -33,7 +36,7 @@ class ofApp : public ofBaseApp{
 		ofTrueTypeFont font; // Default Font
 		
 		// ##### 1 - GUI
-		ofxPanel gui;
+		ofxPanel mainMenu;
 		ofParameterGroup mainGroup;
 
 		Overlay overlay;
@@ -82,9 +85,9 @@ class ofApp : public ofBaseApp{
 		ofPolyline polyline;
 
 		// Scenes
-		vector<Layer> layers;
+		Layer *layers[NUMLAYERS];
 
 		// Scene Settings
-		int activeLayer;
-
 };
+
+

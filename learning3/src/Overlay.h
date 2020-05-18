@@ -18,8 +18,7 @@ public:
 
 	ofParameterGroup params;
 	ofParameter<int> fps;
-	ofParameter<int> color1;
-	ofParameter<int> color2;
+	ofParameter<int> bgColor;
 	ofParameter<int> opacity;
 	ofParameter<bool> fill;
 

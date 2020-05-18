@@ -10,11 +10,10 @@
 
 #include "ofMain.h" 
 #include "ofxGui.h"
-#include "Layer.h"
+#include "Scene.h"
 #include "SCTree.h"
 
-
-class SpaceColonization : public Layer
+class SpaceColonization : public Scene
 {
 public:
 

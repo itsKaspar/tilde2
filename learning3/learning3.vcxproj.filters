@@ -73,9 +73,6 @@
     <ClCompile Include="src\Scenes\DefaultScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\LayerFactory.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -89,6 +86,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Helpers\Octree.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,9 +182,6 @@
     <ClInclude Include="src\Scenes\DefaultScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\LayerFactory.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -198,6 +195,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Helpers\Octree.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

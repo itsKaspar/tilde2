@@ -6,12 +6,14 @@
 // ##### Things like opacity, color palette, etc
 
 #pragma once
+class Scene;// forward declaration because of circular dependency
 
 #ifndef _LAYER
 #define _LAYER
 
 #include "ofMain.h" 
 #include "ofxGui.h"
+
 
 enum SceneType
 {
@@ -33,25 +35,35 @@ enum SceneType
 	Scene_DomainWarping
 };
 
+
 class Layer
 {
+
 public:
-
 	// ##### Basic Functions
-
 	Layer();
-	virtual ~Layer();
-	virtual void setup();
-	virtual void setup(SceneType Type);
-	virtual ofParameterGroup gui(); 
-	virtual void update();
-	virtual void draw();
+	Layer(int id);
+	~Layer();
+	void setup(SceneType Type);
+	void update();
+	void draw();
+
+	ofParameterGroup gui();
+
+	// ##### Active Layer Handling
+
+	void setActiveLayer();
+	int getActiveLayer();
+	bool isActiveLayer();
 
 	// ##### Factory Design Scene Change
 
-	static Layer *CreateScene(SceneType Type);
+	static Scene *CreateScene(SceneType Type);
 
 	// ##### GUI Setup
+
+	ofxPanel sceneMenu;
+	ofParameterGroup sceneGroup;
 
 	ofParameterGroup params;
 	ofParameter<int> layer;
@@ -59,13 +71,22 @@ public:
 	ofParameter<int> opacity;
 	ofParameter<float> xSpeed;
 	ofParameter<bool> restart;
-	ofParameter<ofColor> color1;
+	ofParameter<ofColor> c1;
+	ofParameter<ofColor> c2;
+
+	ofParameter<float> randColor;
+
+	ofColor random;
 
 	// Other Variables
 
-	Layer* scene;
+	int id; // layer id
+	static int activeLayer;
+
+	Scene *scene;
 
 private:
+
 };
 
 #endif

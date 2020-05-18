@@ -1,18 +1,20 @@
 #include "RandomWalker.h"
 
-RandomWalker::RandomWalker(float x, float y, float z, float walk, float stick) {
+RandomWalker::RandomWalker(float x, float y, float z, float walk, float stick, float colorInterpol) {
 
 	position.set(x, y, z);
 	randomWalk = walk; 
 	radius = ofRandom(1,3);
 	sticky = stick;
+	ci = colorInterpol;
 }
 
-RandomWalker::RandomWalker(string spawn, float walk, float stick) {
+RandomWalker::RandomWalker(string spawn, float walk, float stick, float colorInterpol) {
 
 	randomWalk = walk;
 	radius = ofRandom(1, 3);
 	sticky = stick;
+	ci = colorInterpol;
 
 	float w = ofGetWidth();
 	float h = ofGetHeight();

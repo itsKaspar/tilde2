@@ -24,35 +24,35 @@ RandomWalker::RandomWalker(string spawn, float walk, float stick, float colorInt
 		int wall = (int)ofRandom(1, 5);
 		switch (wall) {
 			case 1: // NORTH
-				position.x = ofRandom(0, w);
-				position.y = 0;
+				position.x = ofRandom(-w / 2, w / 2);
+				position.y = h/2;
 				position.z = 0;
 				break;
 			case 2: // EAST
-				position.x = w;
-				position.y = ofRandom(0, h);
+				position.x = w/2;
+				position.y = ofRandom(-h / 2, h / 2);
 				position.z = 0;
 				break;
 			case 3: // SOUTH
-				position.x = ofRandom(0, w);
-				position.y = h;
+				position.x = ofRandom(-w / 2, w / 2);
+				position.y = -h/2;
 				position.z = 0;
 				break;
 			case 4: // WEST
-				position.x = 0;
-				position.y = ofRandom(0, h);
+				position.x = -w/2;
+				position.y = ofRandom(-h / 2, h / 2);
 				position.z = 0;
 				break;
 			default:
-				position.x = ofRandom(0, w);
-				position.y = ofRandom(0, w);
+				position.x = ofRandom(-w / 2, w / 2);
+				position.y = ofRandom(-h / 2, h / 2);
 				position.z = 0;
 		}
 	}
 	else if(spawn == "random")
 	{
-		position.x = ofRandom(0, w);
-		position.y = ofRandom(0, h);
+		position.x = ofRandom(-w / 2, w / 2);
+		position.y = ofRandom(-h / 2, h / 2);
 	}
 }
 
@@ -62,8 +62,8 @@ void RandomWalker::update() {
 	position += velocity;
 
 	// Clamp Values to world space
-	position.x = ofClamp(position.x, 0, ofGetWidth());
-	position.y = ofClamp(position.y, 0, ofGetHeight());
+	position.x = ofClamp(position.x, -ofGetWidth() / 2, ofGetWidth() / 2);
+	position.y = ofClamp(position.y, -ofGetHeight() / 2,ofGetHeight() / 2);
 
 	velocity.set(0, 0, 0);
 }

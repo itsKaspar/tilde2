@@ -5,6 +5,16 @@
 
 #include "DiffLine.h"
 
+DiffLine::DiffLine()
+{
+	octree = new Octree(ofVec3f(ofGetWidth() / 2, ofGetHeight(), 0), ofGetWidth() * 2, true);
+}
+DiffLine::~DiffLine()
+{
+
+}
+
+
 ofParameterGroup DiffLine::gui() {
 	return params;
 }
@@ -16,8 +26,8 @@ void DiffLine::setup() {
 	float i = 0;
 	while (i < TWO_PI) { // make a heart
 		float r = 100;
-		float x = cos(i) * r + ofGetWidth()/2;
-		float y = sin(i) * r + ofGetHeight() / 2;
+		float x = cos(i) * r;
+		float y = sin(i) * r;
 		addNode(Node(x, y, 0)); // add Node to nodes list
 		line.addVertex(ofVec3f(x, y, 0)); // add to drawing line
 
@@ -29,9 +39,18 @@ void DiffLine::setup() {
 void DiffLine::update() {
 	grow();
 	differentiate();
+
+	// reset and refill octree
+	octree->reset(); // reset the octree every frame bc the positions changed
+	// NEED TO MAKE A FUNCTION TO UPDATE THE OCTREE INSTEAD OF REPLACING IT, JUST CHECHKING VECTOR POSITIONS
+	for (size_t i = 0; i < nodes.size(); i++)
+	{
+		octree->insert(ofVec3f(nodes[i].position.x, nodes[i].position.y, 0)); // insert into octree
+	}
 }
 
 void DiffLine::draw() {
+	//octree->draw();
 	line.clear();
 
 	std::vector<Node>::iterator it; // define a list iterator
@@ -52,6 +71,8 @@ void DiffLine::draw() {
 }
 
 void DiffLine::grow() {
+
+
 	int k = 0;
 
 	// EdgeBreak Growth
@@ -85,6 +106,7 @@ void DiffLine::interpolate(int i, ofVec3f v1, ofVec3f v2) {
 
 void DiffLine::differentiate() {
 
+
 	std::vector<Node>::iterator i; // define a list iterator
 	for (std::size_t i = 0; i != nodes.size(); ++i)
 	{
@@ -92,19 +114,24 @@ void DiffLine::differentiate() {
 		ofVec3f v2 = nodes[(i + 1) % nodes.size()].position;
 
 		// Construct Neighbours
-		vector<ofVec3f> neighbours;
+		//vector<ofVec3f> neighbours;
 		std::vector<Node>::iterator j;
+
+		// Look for nodes in range inside octree
+		vector<ofVec3f> found = octree->queryInRadius(nodes[i].position,50);
+
+		/*
 		for (std::size_t j = 0; j != nodes.size(); ++j)
 		{
 			float distance = nodes[i].position.distance(nodes[j].position);
 			if (distance < 50) {
 				neighbours.push_back(nodes[j].position);
 			}
-		}
+		}*/
 
 		// Get Forces
 		ofVec3f attractionForce = nodes[i].attractionForce(v1, v2);
-		ofVec3f repulsionForce = nodes[i].repulsionForce(neighbours);
+		ofVec3f repulsionForce = nodes[i].repulsionForce(found);
 
 		// Apply Multipliers
 		attractionForce = attractionForce * xAttraction;
@@ -123,10 +150,12 @@ void DiffLine::differentiate() {
 }
 
 void DiffLine::addNode(Node node) {
+	octree->insert(ofVec3f(node.position.x, node.position.y, 0)); // insert into octree
 	nodes.push_back(node);
 }
 
 void DiffLine::addNodeAt(int i, Node node) {
+	octree->insert(ofVec3f(node.position.x, node.position.y, 0)); // insert into octree
 	std::vector<Node>::iterator it = nodes.begin() + i;
 	nodes.insert(it, node);
 }

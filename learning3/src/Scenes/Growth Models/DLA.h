@@ -27,12 +27,6 @@ public:
 	void update();
 	void draw();
 
-	//static Layer * __stdcall Create() { return new DLA(); }
-
-	void setColor1(ofColor c1);
-	void setColor2(ofColor c2);
-	void setOpacity(int opacity);
-
 	// ##### GUI Setup
 
 	ofParameterGroup gui();
@@ -41,14 +35,20 @@ public:
 	ofParameter<float> towardsAggregation;
 	ofParameter<bool> displayWalkers;
 
-	// ##### Particle Vectors
-
-	vector<RandomWalker> walkers;
-	vector<RandomWalker> fixed;
+	// ##### Layer Settings
+	
+	void setColor1(ofColor color1) { c1 = color1; }
+	void setColor2(ofColor color2) { c2 = color2; }
+	void setOpacity(int o) { opacity = o; }
 
 	ofColor c1;
 	ofColor c2;
 	int opacity;
+
+	// ##### Particle Vectors
+
+	vector<RandomWalker> walkers;
+	vector<RandomWalker> fixed;
 
 	// ##### Other Variables
 

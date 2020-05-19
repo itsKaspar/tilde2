@@ -3,7 +3,7 @@
 Node::Node(float x, float y, float z) {
 	position.set(x, y, z);
 	maxForce = 0.1;
-	maxEdgeLen = 20;
+	maxEdgeLen = 10;
 }
 
 void Node::update() {
@@ -38,7 +38,7 @@ ofVec3f Node::repulsionForce(vector<ofVec3f> neighbours) {
 		ofVec3f diff = (position - v) / exp(d);
 		repulsionForce += diff;
 	}
-	// repulsionForce /= neighbours.size(); dont need to do that anymore because Im normalizing
+	//repulsionForce /= neighbours.size(); //dont need to do that anymore because Im normalizing
 	repulsionForce.normalize();
 	return repulsionForce;
 }

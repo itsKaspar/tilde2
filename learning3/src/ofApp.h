@@ -30,64 +30,47 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		// ##### Custom Functions
+
 		void startScene(SceneType Type);
 
-		// ##### 0 - Defaults
+		// ##### Load External Elements
+
 		ofTrueTypeFont font; // Default Font
 		
-		// ##### 1 - GUI
+		// ##### GUI
+
 		ofxPanel mainMenu;
 		ofParameterGroup mainGroup;
-
 		Overlay overlay;
 
-		// ##### X - Info Text
+		// ##### Info Display
 
 		vector<string> infoText;
 
-		// ###### 2 - Peasy Cam
-		bool togglePeasyCam = false;
-		ofEasyCam cam;
+		// ##### Layer System
 
-		// ###### 3 - Webcam
-		bool toggleWebcam = false;
-		ofVideoGrabber webcam;
+		Layer *layers[NUMLAYERS];
 
-		// GUI tutorial
-		//ofxFloatSlider floatSlider;
-		//ofxButton button;
-		//ofxLabel label;
-		//ofxIntField intField;
-		//ofxFloatField floatField;
-		//ofxTextField textField;
-		//ofxVec2Slider vec2Slider;
-		//ofxVec3Slider vec3Slider;
-		//ofxVec4Slider vec4Slider;
+		// ##### Screenshot System
 
-		// IMG settings
 		ofImage imgScreenshot;
 		int screenshotCount;
 
-		// temp little things
-		int size;
-		float rotate;
+		//   PUT THIS INSIDE A SCENE INSTEAD
+
+		// ###### 3 - Webcam
+		//bool toggleWebcam = false;
+		//ofVideoGrabber webcam;
 
 		//Drag n Drop
-		vector<ofSoundPlayer> dropSound;
-		vector<ofVideoPlayer> dropVideo;
-		vector<ofImage> dropImage;
+		//vector<ofSoundPlayer> dropSound;
+		//vector<ofVideoPlayer> dropVideo;
+		//vector<ofImage> dropImage;
 
 		//ofFBO
-		ofFbo fbo;
-		ofImage image;
-
-		// draw line 2
-		ofPolyline polyline;
-
-		// Scenes
-		Layer *layers[NUMLAYERS];
-
-		// Scene Settings
+		//ofFbo fbo;
+		//ofImage image;
 };
 
 

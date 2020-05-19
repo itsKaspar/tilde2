@@ -12,6 +12,7 @@
 #include "ofxGui.h"
 #include "Scene.h"
 #include "Node.h"
+#include "Octree.h"
 
 class DiffLine : public Scene
 {
@@ -19,6 +20,8 @@ public:
 
 	// ##### Basic Functions
 
+	DiffLine();
+	~DiffLine();
 	void setup(); 
 	void update(); 
 	void draw();
@@ -43,6 +46,8 @@ public:
 
 	// ##### Other Variables
 
+	int dim = 2;
+
 	bool closedShape;
 
 	float maxForce;
@@ -53,6 +58,8 @@ public:
 
 	ofPolyline line;
 	vector<Node> nodes;
+
+	Octree *octree;
 
 private:
 };

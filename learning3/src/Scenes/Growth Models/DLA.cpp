@@ -17,7 +17,7 @@ ofParameterGroup DLA::gui() {
 }
 
 DLA::DLA() {
-	octree = new Octree(ofVec3f(ofGetWidth()/2, ofGetHeight(),0), ofGetWidth()*2, true);
+	octree = new Octree(ofVec3f::zero(), ofGetWidth()*2, true);
 }
 DLA::~DLA() {
 	delete this;
@@ -35,8 +35,8 @@ void DLA::setup() {
 	// ##### Spawn Initial Dead
 	// random color interpol
 	float rndColorInterpol = ofRandom(0, 1);
-	fixed.push_back(RandomWalker(ofGetWidth() / 2, ofGetHeight() / 2, 0, 0, 1, rndColorInterpol));
-	octree->insert(ofVec2f(ofGetWidth() / 2, ofGetHeight() / 2)); // insert first one into octree
+	fixed.push_back(RandomWalker(0, 0, 0, 0, 1, rndColorInterpol));
+	octree->insert(ofVec2f(0, 0)); // insert first one into octree
 
 	// ##### Spawn First lot of Walkers
 
@@ -127,7 +127,3 @@ void DLA::draw() {
 		ofDrawCircle(fixed[i].position.x, fixed[i].position.y, fixed[i].radius);
 	}
 }
-
-void DLA::setColor1(ofColor color1) { c1 = color1; }
-void DLA::setColor2(ofColor color2) { c2 = color2;  }
-void DLA::setOpacity(int o) { opacity = o; }

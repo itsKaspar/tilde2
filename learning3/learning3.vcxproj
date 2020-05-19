@@ -117,7 +117,7 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Helpers;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models\SpaceColonization;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Shader Experimentations;C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems\Snake;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Helpers;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models\SpaceColonization;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Shader Experimentations;C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -161,9 +161,8 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>
-C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Shader Experimentations;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models\SpaceColonization;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Particle Systems\Snake;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Helpers;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3\src\Scenes\Growth Models;C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;C:\Users\kaspar\Desktop\OF Projects\learning3\learning3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -205,6 +204,8 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCTree.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Boids.cpp" />
+    <ClCompile Include="src\Scenes\Particle Systems\Snake\Snake.cpp" />
+    <ClCompile Include="src\Scenes\Particle Systems\Test1.cpp" />
     <ClCompile Include="src\Scenes\Shader Experimentations\DomainWarping.cpp" />
     <ClCompile Include="src\Scenes\Shader Experimentations\Julia2D.cpp" />
     <ClCompile Include="src\Scenes\Shader Experimentations\ShaderTest.cpp" />
@@ -238,6 +239,8 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCTree.h" />
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Boids.h" />
+    <ClInclude Include="src\Scenes\Particle Systems\Snake\Snake.h" />
+    <ClInclude Include="src\Scenes\Particle Systems\Test1.h" />
     <ClInclude Include="src\Scenes\Shader Experimentations\DomainWarping.h" />
     <ClInclude Include="src\Scenes\Shader Experimentations\Julia2D.h" />
     <ClInclude Include="src\Scenes\Shader Experimentations\ShaderTest.h" />

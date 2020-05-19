@@ -32,23 +32,23 @@ enum SceneType
 	Scene_ShaderTest,
 	Scene_Julia2D,
 	Scene_SimplexTerrain,
-	Scene_DomainWarping
-};
+	Scene_DomainWarping,
 
+	Scene_Test1
+};
 
 class Layer
 {
-
 public:
+
 	// ##### Basic Functions
+
 	Layer();
 	Layer(int id);
 	~Layer();
 	void setup(SceneType Type);
 	void update();
 	void draw();
-
-	ofParameterGroup gui();
 
 	// ##### Active Layer Handling
 
@@ -62,21 +62,19 @@ public:
 
 	// ##### GUI Setup
 
+	ofParameterGroup gui();
 	ofxPanel sceneMenu;
 	ofParameterGroup sceneGroup;
-
 	ofParameterGroup params;
-	ofParameter<int> layer;
-	ofParameter<int> blendMode;
 	ofParameter<int> opacity;
+	ofParameter<int> blendMode;
 	ofParameter<float> xSpeed;
 	ofParameter<bool> restart;
 	ofParameter<ofColor> c1;
 	ofParameter<ofColor> c2;
-
-	ofParameter<float> randColor;
-
-	ofColor random;
+	ofParameter<bool> lighting;
+	ofParameter<ofVec3f> speedLight;
+	ofParameter<ofVec3f> speedCamera;
 
 	// Other Variables
 
@@ -84,6 +82,16 @@ public:
 	static int activeLayer;
 
 	Scene *scene;
+
+	// Transform
+
+	ofEasyCam camera;
+
+	// Lights
+
+
+	ofLight light;
+	ofMaterial material;
 
 private:
 

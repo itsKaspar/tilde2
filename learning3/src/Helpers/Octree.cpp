@@ -93,20 +93,20 @@ bool Octree::isInBounds(ofVec3f n, Octree o)
 	return (betweenX && betweenY && betweenZ);
 }
 
-void Octree::draw() {
+void Octree::draw(ofColor c1, ofColor c2) {
 
 	ofNoFill();
 	if (subdivided) // ##### Draw Children
 	{
 		for (size_t i = 0; i < 8; i++)
 		{
-			children[i]->draw();
+			children[i]->draw(c2, c1);
 		}
 	}
 	else // ##### Draw Self
 	{
-		if (points.size() == 0){ofSetColor(255, 0, 0, 255);}
-		else{ofSetColor(255, 255, 0, 255);}
+		if (points.size() == 0){ofSetColor(c1);}
+		else{ofSetColor(c2);}
 		ofDrawBox(ofVec3f(pos.x, pos.y, pos.z), size); // draw main box
 	}
 }

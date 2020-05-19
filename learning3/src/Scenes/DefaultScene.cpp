@@ -55,3 +55,7 @@ void DefaultScene::draw() {
 
 	ofPopMatrix();
 }
+
+void DefaultScene::reset() {
+
+}

@@ -69,15 +69,18 @@ public:
 	ofParameter<int> opacity;
 	ofParameter<int> blendMode;
 	ofParameter<float> xSpeed;
-	ofParameter<bool> restart;
 	ofParameter<ofColor> c1;
 	ofParameter<ofColor> c2;
 	ofParameter<bool> lighting;
 	ofParameter<ofVec3f> speedLight;
 	ofParameter<ofVec3f> speedCamera;
+	ofParameter<float> xBpm;
+	ofParameter<bool> resetAtBpm;
 
 	// Other Variables
 
+	int bpm;
+	float timeSinceLastBeat;
 	int id; // layer id
 	static int activeLayer;
 

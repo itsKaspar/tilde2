@@ -27,8 +27,16 @@ public:
 
 	ofParameterGroup gui();
 	ofParameterGroup params;
-	//ofParameter<float> scale;
-	//ofParameter<ofVec3f> rotation;
+
+	// ##### Layer Settings
+
+	void setColor1(ofColor color1) { c1 = color1; }
+	void setColor2(ofColor color2) { c2 = color2; }
+	void setOpacity(int o) { opacity = o; }
+
+	ofColor c1;
+	ofColor c2;
+	int opacity;
 
 	SCTree tree;
 	float maxDist; // max dist for branch in range of leaf

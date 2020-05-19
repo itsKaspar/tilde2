@@ -25,6 +25,7 @@ public:
 	void setup(); 
 	void update(); 
 	void draw();
+	void reset();
 
 	// ##### Other Functions
 
@@ -43,6 +44,19 @@ public:
 
 	ofParameterGroup gui();
 	ofParameterGroup params;
+	ofParameter<bool> isCentered;
+	ofParameter<bool> is3D;
+	ofParameter<bool> drawOctree;
+
+	// ##### Layer Settings
+
+	void setColor1(ofColor color1) { c1 = color1; }
+	void setColor2(ofColor color2) { c2 = color2; }
+	void setOpacity(int o) { opacity = o; }
+
+	ofColor c1;
+	ofColor c2;
+	int opacity;
 
 	// ##### Other Variables
 
@@ -58,6 +72,7 @@ public:
 
 	ofPolyline line;
 	vector<Node> nodes;
+
 
 	Octree *octree;
 

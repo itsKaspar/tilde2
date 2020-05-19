@@ -47,33 +47,54 @@ void Layer::setup(SceneType Type) {
 	sceneGroup.add(gui()); // add general scene menu
 	sceneGroup.add(scene->gui()); // add specific scene menu
 	sceneMenu.setup(sceneGroup);
+
+	bpm = 120;
+	timeSinceLastBeat = 0;
 }
 
 
 ofParameterGroup Layer::gui()
 {
-
 	// ##### GUI Setup
+
 	params.setName("Scene Settings");                                       // ADD THIS NAME OF SIMULATION
 	params.add(opacity.set("Opacity", 255, 0, 255));
 	params.add(blendMode.set("Blend Mode", 1, 1, 4));
 	params.add(xSpeed.set("Speed", 1.0, 0.25, 4.0));                    // ADD THIS : button to double or halve speed
-	params.add(restart.set("Restart", false));
 	params.add(c1.set(ofColor(200, 100, 148)));
 	params.add(c2.set(ofColor(19, 60, 85)));
 	params.add(lighting.set("Lighting", true));
 	params.add(speedLight.set("Speed Light", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(10))); // make this a type variable
-	params.add(speedCamera.set("Rotation", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(1000)));
+	params.add(speedCamera.set("Rotation", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(100)));
+	params.add(resetAtBpm.set("BPM follow", false));
+	params.add(xBpm.set("BPM Multiplier", 1, 0.001, 8.0));
 	return params;
 }
 
 
 void Layer::update() {
 
+	// ##### BPM Follow System
+	if (resetAtBpm)
+	{
+		float bps = 1 / (float)((bpm*xBpm) / 60); // calculate beats per seconds
+		timeSinceLastBeat += ofGetLastFrameTime();
+		if (timeSinceLastBeat > bps)
+		{
+			scene->reset();
+			timeSinceLastBeat = 0;
+		}
+	}
+
+	// ##### Dynamic Lighting System
+
 	float time = ofGetElapsedTimef();
 	light.setPosition(200 * sin(time*speedLight->x), 200 * cos(time*speedLight->y), 200 * cos(time*speedLight->y));
 
 	scene->update();
+
+	// ##### Pass Variables to Scene
+
 	scene->setColor1(c1);
 	scene->setColor2(c2);
 	scene->setOpacity(opacity);

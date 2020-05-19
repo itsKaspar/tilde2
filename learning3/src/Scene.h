@@ -21,7 +21,8 @@ public:
 	~Scene() {};
 	virtual void setup() {};
 	virtual void update() {};
-	virtual void draw(){};
+	virtual void draw() {};
+	virtual void reset() {};
 	virtual ofParameterGroup gui() { return params; };
 	virtual void setColor1(ofColor c1) {};
 	virtual void setColor2(ofColor c2) {};

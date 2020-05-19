@@ -18,12 +18,12 @@ public:
 	Octree();
 	Octree(ofVec3f p, float s, bool isRoot);
 	~Octree();
-	void draw();
+	void draw(ofColor c1, ofColor c2);
 	bool insert(ofVec3f v);
 	void reset();
 
 	bool isInBounds(ofVec3f n, Octree o);
-	bool isInBounds(ofVec3f n);
+	//bool isInBounds(ofVec3f n);
 	void subdivide(ofVec3f p); // takes center of this octree
 
 	int getNumPoints();

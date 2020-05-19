@@ -109,7 +109,7 @@ void DLA::update() {
 
 void DLA::draw() {
 
-	//octree->draw(c1, c2);
+	octree->draw(c1, c2);
 
 	if (displayWalkers)
 	{

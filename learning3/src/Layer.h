@@ -89,7 +89,6 @@ public:
 
 	// Lights
 
-
 	ofLight light;
 	ofMaterial material;
 

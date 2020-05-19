@@ -11,7 +11,9 @@
 #include "ofMain.h" 
 #include "ofxGui.h"
 #include "Scene.h"
-#include "SCTree.h"
+#include "SCLeaf.h"
+#include "SCBranch.h"
+#include "Octree.h"
 
 class SpaceColonization : public Scene
 {
@@ -19,14 +21,20 @@ public:
 
 	// ##### Basic Functions
 
+	SpaceColonization();
+	~SpaceColonization();
 	void setup();
 	void update();
 	void draw();
+	void reset();
+	bool closeEnough(SCBranch b);
 
 	// ##### GUI Setup
 
 	ofParameterGroup gui();
 	ofParameterGroup params;
+	ofParameter<bool> is3D;
+	//ofParameter<bool> drawOctree;
 
 	// ##### Layer Settings
 
@@ -38,9 +46,16 @@ public:
 	ofColor c2;
 	int opacity;
 
-	SCTree tree;
+	// ##### Space Colonization Vars
+
+	vector<SCLeaf> leaves;
+	vector<SCBranch> branches;
+
 	float maxDist; // max dist for branch in range of leaf
 	float minDist; // min dist for branch in range of leaf
+
+	ofPolyline line;
+	//Octree *octree;
 
 private:
 };

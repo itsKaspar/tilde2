@@ -18,7 +18,7 @@ public:
 	SCLeaf();
 	~SCLeaf();
 
-	ofVec2f position;
+	ofVec3f position;
 	bool reached;
 
 private:

@@ -6,7 +6,7 @@
 #include "SCLeaf.h"
 
 SCLeaf::SCLeaf() {
-	position = ofVec2f(ofRandom(0, ofGetWidth()), ofRandom(0, ofGetHeight()-100));
+	position = ofVec3f(ofRandom(-ofGetWidth()/2, ofGetWidth()/2), ofRandom(-ofGetHeight()/2, ofGetHeight()/2-100), ofRandom(-ofGetWidth() / 2, ofGetWidth() / 2));
 	reached = false;
 }
 SCLeaf::~SCLeaf() {

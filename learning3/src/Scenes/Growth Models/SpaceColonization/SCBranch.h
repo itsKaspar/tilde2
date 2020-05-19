@@ -16,16 +16,16 @@ class SCBranch
 public:
 
 	SCBranch(SCBranch *par);
-	SCBranch(ofVec2f pos, ofVec2f dir);
+	SCBranch(ofVec3f pos, ofVec3f dir);
 	~SCBranch();
-	ofVec2f next();
+	ofVec3f next();
 	void reset();
 
-	ofVec2f position;
-	ofVec2f direction;
+	ofVec3f position;
+	ofVec3f direction;
 	SCBranch *parent;
 
-	ofVec2f origDir;
+	ofVec3f origDir;
 
 	int count;
 	float length;

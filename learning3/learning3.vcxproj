@@ -201,7 +201,6 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClCompile Include="src\Scenes\Growth Models\RandomWalker.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.cpp" />
-    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCTree.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Boids.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Snake\Snake.cpp" />
@@ -236,7 +235,6 @@ C:\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxG
     <ClInclude Include="src\Scenes\Growth Models\RandomWalker.h" />
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.h" />
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.h" />
-    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCTree.h" />
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Boids.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Snake\Snake.h" />

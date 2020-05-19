@@ -5,7 +5,7 @@
 
 #include "SCBranch.h"
 
-SCBranch::SCBranch(ofVec2f pos, ofVec2f dir) {
+SCBranch::SCBranch(ofVec3f pos, ofVec3f dir) {
 	position = pos;
 	direction = dir;
 	origDir = dir;
@@ -30,9 +30,9 @@ void SCBranch::reset() {
 	direction = origDir;
 }
 
-ofVec2f SCBranch::next() {
-	ofVec2f v = direction * length;
-	ofVec2f next = position + v;
+ofVec3f SCBranch::next() {
+	ofVec3f v = direction * length;
+	ofVec3f next = position + v;
 	return next;
 }
 

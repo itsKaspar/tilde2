@@ -5,10 +5,9 @@
 
 #include "SpaceColonization.h"
 
-SpaceColonization::SpaceColonization() {}
+//SpaceColonization::SpaceColonization() {}
 
-SpaceColonization::~SpaceColonization() {
-}
+//SpaceColonization::~SpaceColonization() {}
 
 void SpaceColonization::reset() {
 	leaves.clear();

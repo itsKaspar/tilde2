@@ -20,8 +20,8 @@ public:
 
 	// ##### Basic Functions
 
-	DiffLine();
-	~DiffLine();
+	//DiffLine();
+	//~DiffLine();
 	void setup(); 
 	void update(); 
 	void draw();

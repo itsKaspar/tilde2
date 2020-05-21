@@ -5,13 +5,8 @@
 
 #include "DiffLine.h"
 
-DiffLine::DiffLine()
-{
-	octree = new Octree(ofVec3f(0, 0, 0), ofGetWidth() * 2, true);
-}
-DiffLine::~DiffLine()
-{
-}
+//DiffLine::DiffLine(){}
+//DiffLine::~DiffLine(){}
 
 void DiffLine::reset() {
 	nodes.clear();
@@ -27,6 +22,8 @@ ofParameterGroup DiffLine::gui() {
 }
 
 void DiffLine::setup() {
+
+	octree = new Octree(ofVec3f(0, 0, 0), ofGetWidth() * 2, true);
 
 	// ##### Initial circle
 

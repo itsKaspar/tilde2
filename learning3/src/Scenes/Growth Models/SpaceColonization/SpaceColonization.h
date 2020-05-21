@@ -21,8 +21,8 @@ public:
 
 	// ##### Basic Functions
 
-	SpaceColonization();
-	~SpaceColonization();
+	//SpaceColonization();
+	//~SpaceColonization();
 	void setup();
 	void update();
 	void draw();

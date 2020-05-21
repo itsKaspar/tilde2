@@ -19,8 +19,8 @@ class DLA : public Scene
 public:
 
 	// ##### Basic Functions
-	DLA();
-	~DLA();
+	//DLA();
+	//~DLA();
 	void reset();
 	void setup();
 	void update();

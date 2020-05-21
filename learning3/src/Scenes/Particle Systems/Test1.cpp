@@ -41,8 +41,8 @@ void Test1::draw() {
 
 	for (size_t i = 0; i < NUMSNAKES; i++)                       // MAYBE WE CAN PUT THIS ON ONYL ONE LINE
 	{
-		material.setDiffuseColor(ofColor(c1.r, c1.g, c1.b).lerp(ofColor(c2.r, c2.g, c2.b), snakes[i]->ci));
-		material.begin();
+		//material.setDiffuseColor(ofColor(c1.r, c1.g, c1.b).lerp(ofColor(c2.r, c2.g, c2.b), snakes[i]->ci));
+		//material.begin();
 		ofSetColor(ofColor(c1.r, c1.g, c1.b).lerp(ofColor(c2.r, c2.g, c2.b), snakes[i]->ci), opacity);
 		snakes[i]->draw();
 	}

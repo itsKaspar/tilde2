@@ -26,9 +26,9 @@ public:
 	// ##### GUI Setup
 
 	ofParameterGroup gui();
-	ofParameterGroup params;
-	ofParameter<float> scale;
-	ofParameter<ofVec3f> rotation;
+	//ofParameterGroup params;
+	//ofParameter<float> scale;
+	//ofParameter<ofVec3f> rotation;
 
 	// ##### Layer Settings
 
@@ -42,15 +42,15 @@ public:
 
 	// ##### Shader Variables
 
-	ofShader shader;
+	//ofShader shader;
 
-	float tx;
-	float ty;
-	float tz;
-	float dt;
+	//float tx;
+	//float ty;
+	//float tz;
+	//float dt;
 
-	ofTexture tex;
-	ofPixels pix;
+	//ofTexture tex;
+	//ofPixels pix;
 
 private:
 };

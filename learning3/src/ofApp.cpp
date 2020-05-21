@@ -29,8 +29,8 @@ void ofApp::setup(){
 
 	for (size_t i = 0; i < NUMLAYERS; ++i)
 	{
-		layers[i] = new Layer(i + 1);
-		layers[i]->setup(Scene_DiffLine);
+		layers[i] = new Layer(i + 1, Scene_Default);
+		layers[i]->setup();
 	}
 
 	// ##### Post Processing Initiating
@@ -41,6 +41,8 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
+
 
 	// # Fullscreen toggle doesn't work with keyboard f for fullscreen
 	// if (fullScreenToggle) ofSetFullscreen(true); else ofSetFullscreen(false);
@@ -53,7 +55,9 @@ void ofApp::update(){
 	for (size_t i = 0; i < NUMLAYERS; i++)
 	{
 		layers[i]->update();
+	
 	}
+
 
 }
 
@@ -105,6 +109,7 @@ void ofApp::draw(){
 	for (size_t i = 0; i < NUMLAYERS; i++) // draw every layer
 	{
 		layers[i]->draw();
+		std::cout << "value: " << layers[i]->getActiveLayer() << endl;
 	}
 
 	// ##### Post Processing End
@@ -151,7 +156,7 @@ void ofApp::keyPressed(int key){
 	case 'b': startScene(Scene_Julia2D); break;
 	case 'n': startScene(Scene_SimplexTerrain); break;
 	case 'm': startScene(Scene_DomainWarping); break;
-	case ',': startScene(Scene_Boids); break;
+	case ',': startScene(Scene_Default); break;
 	case '1':	layers[0]->setActiveLayer(); break;
 	case '2':	layers[1]->setActiveLayer(); break;
 	case '3':	layers[2]->setActiveLayer(); break;
@@ -172,8 +177,10 @@ void ofApp::startScene(SceneType Type) {                                  // THI
 	{
 		if (layers[i]->isActiveLayer())
 		{
-			layers[i] = new Layer(i + 1);
-			layers[i]->setup(Type);
+			delete layers[i];
+			layers[i] = new Layer(i + 1, Type);
+			layers[i]->setup();
+			
 			break;
 		}
 	}

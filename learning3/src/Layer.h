@@ -44,11 +44,13 @@ public:
 	// ##### Basic Functions
 
 	Layer();
-	Layer(int id);
+	Layer(int i, SceneType Type);
 	~Layer();
-	void setup(SceneType Type);
+	void setup();
 	void update();
 	void draw();
+
+	double debug[100000];
 
 	// ##### Active Layer Handling
 
@@ -62,12 +64,13 @@ public:
 
 	// ##### GUI Setup
 
-	ofParameterGroup gui();
+	void gui();
 	ofxPanel sceneMenu;
 	ofParameterGroup sceneGroup;
 	ofParameterGroup params;
 	ofParameter<int> opacity;
 	ofParameter<int> blendMode;
+
 	ofParameter<ofColor> c1;
 	ofParameter<ofColor> c2;
 	ofParameter<bool> lighting;

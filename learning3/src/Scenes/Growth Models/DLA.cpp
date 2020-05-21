@@ -22,11 +22,8 @@ ofParameterGroup DLA::gui() {
 	return params;
 }
 
-DLA::DLA() {
-	octree = new Octree(ofVec3f::zero(), ofGetWidth()*2, true);
-}
-DLA::~DLA() {
-}
+//DLA::DLA() {}
+//DLA::~DLA() {}
 
 void DLA::reset() {
 	walkers.clear();
@@ -36,6 +33,8 @@ void DLA::reset() {
 }
 
 void DLA::setup() {
+
+	octree = new Octree(ofVec3f::zero(), ofGetWidth() * 2, true);
 
 	// ##### Spawn Initial Dead
 	// random color interpol
@@ -137,8 +136,8 @@ void DLA::draw() {
 
 			if (is3D) // 3D Render
 			{
-				material.setDiffuseColor(walkerColor);
-				material.begin();
+				//material.setDiffuseColor(walkerColor);
+				//material.begin();
 				ofDrawSphere(walkers[i].position.x, walkers[i].position.y, walkers[i].position.z, walkers[i].radius); 
 			}
 			else // 2D Render
@@ -157,8 +156,8 @@ void DLA::draw() {
 
 		if (is3D) // 3D Render
 		{
-			material.setDiffuseColor(fixedColor);
-			material.begin();
+			//material.setDiffuseColor(fixedColor);
+			//material.begin();
 			ofDrawSphere(fixed[i].position.x, fixed[i].position.y, fixed[i].position.z, fixed[i].radius);
 		}
 		else // 2D Render

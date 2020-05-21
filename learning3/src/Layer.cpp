@@ -24,66 +24,79 @@
 int Layer::activeLayer;
 
 Layer::Layer() {
-
 }
 
-Layer::Layer(int i) {
+Layer::Layer(int i, SceneType Type) {
+
+	// ##### Layer Variables 
+
 	id = i;
 	activeLayer = i;
-}
 
-Layer::~Layer() {
-	delete scene;
-}
-
-
-void Layer::setup(SceneType Type) {
-	// ##### Lighting                                         // MAKE THIS A BOOL CUZ WE DONT ALWAYS NeED LIGHTS
+	// ##### Lighting                                       
 
 	light.setup();
 	light.disable(); // disable in setup because else there is a bug
 	ofDisableDepthTest();
 
+	// ##### Time Handling
+
+	bpm = 120;
+	timeSinceLastBeat = 0;
+
+	// ##### Scene Initiation
+
 	scene = CreateScene(Type);
-	sceneGroup.add(gui()); // add general scene menu
-	sceneGroup.add(scene->gui()); // add specific scene menu
-	sceneMenu.setup(sceneGroup);
+
+}
+
+Layer::~Layer() {
+
+	delete scene;
+}
+
+
+void Layer::setup() {
+
+	gui();
 
 	scene->setup();
 
 	reset.addListener(this, &Layer::resetChanged);
-
-	bpm = 120;
-	timeSinceLastBeat = 0;
 }
 
 void Layer::resetChanged(bool &reset) {
+
 	scene->reset();
 }
 
 
-ofParameterGroup Layer::gui()
+void Layer::gui()
 {
 	// ##### GUI Setup
-
+	
 	params.setName("Scene Settings");                                       // ADD THIS NAME OF SIMULATION
 	params.add(opacity.set("Opacity", 255, 0, 255));
 	params.add(blendMode.set("Blend Mode", 1, 1, 4));
+
 	params.add(c1.set(ofColor(200, 100, 148)));
 	params.add(c2.set(ofColor(19, 140, 215)));
 	params.add(lighting.set("Lighting", true));
-	params.add(speedLight.set("Speed Light", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(10))); // make this a type variable
+	params.add(speedLight.set("Speed Light", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(10)));
 	params.add(speedCamera.set("Rotation", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(100)));
 	params.add(resetAtBpm.set("BPM follow", false));
 	params.add(xBpm.set("BPM Multiplier", 1, 0.001, 8.0));
 	params.add(reset.set("Reset", false));
-	return params;
-}
 
+	sceneGroup.add(params); // add general scene menu
+	sceneGroup.add(scene->gui()); // add specific scene menu
+	sceneMenu.setup(sceneGroup);
+}
 
 void Layer::update() {
 
 	// ##### BPM Follow System
+
 	if (resetAtBpm)
 	{
 		float bps = 1 / (float)((bpm*xBpm) / 60); // calculate beats per seconds
@@ -95,14 +108,14 @@ void Layer::update() {
 		}
 	}
 
-	// ##### Dynamic Lighting System
+	//// ##### Dynamic Lighting System
 
 	float time = ofGetElapsedTimef();
 	light.setPosition(200 * sin(time*speedLight->x), 200 * cos(time*speedLight->y), 200 * cos(time*speedLight->y));
 
 	scene->update();
 
-	// ##### Pass Variables to Scene
+	//// ##### Pass Color to Scene
 
 	scene->setColor1(c1);
 	scene->setColor2(c2);
@@ -113,17 +126,19 @@ void Layer::update() {
 void Layer::draw() {
 	if (opacity > 0) // if opacity of the layer is at 0 don't draw
 	{
-		// # Blend Modes
+		// ##### Blend Modes
+
 		if (blendMode == '1') 		ofEnableBlendMode(OF_BLENDMODE_ALPHA);
 		if (blendMode == '2') 		ofEnableBlendMode(OF_BLENDMODE_SUBTRACT);
 		if (blendMode == '3') 		ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
 		if (blendMode == '4') 		ofEnableBlendMode(OF_BLENDMODE_SCREEN);
+
 		// unused blend modes
 		//OF_BLENDMODE_DISABLED
 		//OF_BLENDMODE_ADD
 
 
-		// # Lights
+	//	// ##### Lights
 
 		if (lighting)
 		{
@@ -135,28 +150,30 @@ void Layer::draw() {
 			//material.begin();
 		}
 
-		// # Camera
+		// ##### Camera
+
 		camera.begin();
 
-		// lights VISUALIZER
-		//float time = ofGetElapsedTimef();
-		//ofDrawSphere(200*sin(time*speedLight->x), 200*cos(time*speedLight->y), 200 * cos(time*speedLight->y), 30); // light visualizer
+	//	// ##### Debug Lights 
+
+	//	//float time = ofGetElapsedTimef();
+	//	//ofDrawSphere(200*sin(time*speedLight->x), 200*cos(time*speedLight->y), 200 * cos(time*speedLight->y), 30); // light visualizer
+
+	//	// ##### Rotate Camera View
 
 		ofRotateXDeg(speedCamera->x * ofGetElapsedTimef());
 		ofRotateYDeg(speedCamera->y * ofGetElapsedTimef());
 		ofRotateZDeg(speedCamera->z * ofGetElapsedTimef());
 
-		ofSetColor(10);
-		//ofDrawBox(0, 0, 0, 128);
+		// ##### Scene Draw
 
 		scene->draw();
 
-		// Reset Transform
-		//ofPopMatrix();
+		// ##### Camera End
 
 		camera.end();
 
-		// Reset Lights
+	//	// ##### Lights End
 		if (lighting)
 		{
 			material.end();
@@ -164,7 +181,9 @@ void Layer::draw() {
 			ofDisableDepthTest();
 		}
 	}
-		// Display Scene Menu
+
+	// ##### Display Scene Menu
+
 	if (id == activeLayer) sceneMenu.draw();
 
 }
@@ -173,11 +192,6 @@ void Layer::draw() {
 void Layer::setActiveLayer() { activeLayer = id; }
 int Layer::getActiveLayer() { return activeLayer; }
 bool Layer::isActiveLayer() { if (id == activeLayer) { return true; } else { return false; } }                  // Make this ternaryyyyyyyyyyyyy i can never remember
-
-/*
-void Layer::deleteScene() {
-	if (scene) delete scene;
-}*/
 
 
 Scene *Layer::CreateScene(SceneType Type)

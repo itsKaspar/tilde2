@@ -18,6 +18,10 @@ Octree::Octree(ofVec3f p, float s, bool r) {
 
 }
 Octree::~Octree() {
+	//for (int i = 0; i < 8; ++i)
+	//{
+	//	delete children[i];
+	//}
 }
 
 void Octree::reset()

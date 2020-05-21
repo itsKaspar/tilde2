@@ -14,8 +14,8 @@
 class SCLeaf
 {
 public:
-
 	SCLeaf();
+	SCLeaf(ofVec3f v);
 	~SCLeaf();
 
 	ofVec3f position;

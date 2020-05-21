@@ -4,7 +4,7 @@
 #include "ofxGui.h" // maybe we can take this one out now that my voerlay is a class ?
 #include "Overlay.h"
 #include "Layer.h"
-#include "DLA.h"
+#include "ofxPostProcessing.h"
 
 #define NUMLAYERS 3
 
@@ -71,6 +71,10 @@ class ofApp : public ofBaseApp{
 		//ofFBO
 		//ofFbo fbo;
 		//ofImage image;
+
+		// Post Processing
+		//ofxPostProcessing post;
+
 };
 
 

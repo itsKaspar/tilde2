@@ -68,7 +68,6 @@ public:
 	ofParameterGroup params;
 	ofParameter<int> opacity;
 	ofParameter<int> blendMode;
-	ofParameter<float> xSpeed;
 	ofParameter<ofColor> c1;
 	ofParameter<ofColor> c2;
 	ofParameter<bool> lighting;
@@ -76,6 +75,9 @@ public:
 	ofParameter<ofVec3f> speedCamera;
 	ofParameter<float> xBpm;
 	ofParameter<bool> resetAtBpm;
+	ofParameter<bool> reset;
+
+	void resetChanged(bool & reset);
 
 	// Other Variables
 

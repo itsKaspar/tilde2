@@ -6,20 +6,23 @@
 #include "SCBranch.h"
 
 SCBranch::SCBranch(ofVec3f pos, ofVec3f dir) {
+	hasParent = false;
 	position = pos;
 	direction = dir;
 	origDir = dir;
 	count = 0;
 	length = 5;
+
 }
 
-SCBranch::SCBranch(SCBranch *par) {
-	parent = par;
-	position = par->next();
-	direction = parent->direction;
-	origDir = direction;
+SCBranch::SCBranch(ofVec3f pos, ofVec3f dir, bool par) {
+	hasParent = par;
+	direction = dir;
+	origDir = dir;
 	count = 0;
 	length = 5;
+	parentposition = pos;
+	position = dir * length + pos;
 }
 
 SCBranch::~SCBranch() {

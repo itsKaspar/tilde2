@@ -9,7 +9,7 @@ class RandomWalker
 {
 public:
 	RandomWalker(float x, float y, float z, float walk, float stick, float colorInterpol);
-	RandomWalker(string spawn, float walk, float stick, float colorInterpol);
+	RandomWalker(string spawn, float walk, float stick, float colorInterpol, bool is3D);
 	void update();
 	void debugDraw();
 	void applyForce(ofVec3f force);

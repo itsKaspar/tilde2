@@ -14,9 +14,9 @@ void ofApp::setup(){
 
 	// ##### Main GUI - Setup
 
-	overlay.setup(); 
-	mainGroup.add(overlay.params);
-	mainMenu.setup(mainGroup);
+	//overlay.setup(); 
+	//mainGroup.add(overlay.params);
+	//mainMenu.setup(mainGroup);
 
 	// ##### Info Display
 
@@ -30,8 +30,13 @@ void ofApp::setup(){
 	for (size_t i = 0; i < NUMLAYERS; ++i)
 	{
 		layers[i] = new Layer(i + 1);
-		layers[i]->setup(Scene_SpaceColonization);
+		layers[i]->setup(Scene_DiffLine);
 	}
+
+	// ##### Post Processing Initiating
+
+	//post.init(ofGetWidth(), ofGetHeight());
+	//post.createPass<BloomPass>();
 }
 
 //--------------------------------------------------------------
@@ -49,21 +54,22 @@ void ofApp::update(){
 	{
 		layers[i]->update();
 	}
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
 	// # Default Colors
-																					// put the background color ehre or keep it in overlay ? or put both in overlay
-	//ofSetColor(255);                                                                 // MAKE THIS COLOR BE THE CONTRARY OF THE BACKGROUND MENU, or always +100 - 100 somth, like relative
+	ofSetBackgroundColor(0);															// put the background color ehre or keep it in overlay ? or put both in overlay
+	//ofSetColor(255);                                                              // MAKE THIS COLOR BE THE CONTRARY OF THE BACKGROUND MENU, or always +100 - 100 somth, like relative
 		
 	// ##### Main GUI - Draw
 
-	overlay.draw();
-	mainMenu.draw();                                                         // MAKE ANOTHER FUNCTION FOR THe SCENE MENU DRAW SO THAT I CAN CALL IT BEFORE THE CAMERA
+	//overlay.draw();
+	mainMenu.draw();																// MAKE ANOTHER FUNCTION FOR THe SCENE MENU DRAW SO THAT I CAN CALL IT BEFORE THE CAMERA
 
-	// ##### Info Display																	// the INFO DISPLAY CAN GO IN THE OVERLAY ASWELL
+	// ##### Info Display															// the INFO DISPLAY CAN GO IN THE OVERLAY ASWELL
 
 	ofSetColor(255);
 	infoText.push_back("Current FPS : " + to_string(ofGetFrameRate()));
@@ -90,6 +96,10 @@ void ofApp::draw(){
 		font.drawString(text, w, h);
 	} 
 
+	// ##### Post Processing Begin
+
+	//post.begin();
+
 	// ##### Layer System - Draw
 
 	for (size_t i = 0; i < NUMLAYERS; i++) // draw every layer
@@ -97,9 +107,10 @@ void ofApp::draw(){
 		layers[i]->draw();
 	}
 
+	// ##### Post Processing End
 
-	// Set Blend Mode
-	//ofEnableBlendMode(OF_BLENDMODE_ADD);                                      // ADD THE BLEND MODES INSIDE THE LAYER SYSTEM
+	//post.end();
+
 
 	// Webcam 
 	//webcam.draw((ofGetWidth() / 2) - 360, (ofGetHeight() / 2) - 240, 360, 240);               // PUT THIS INTO ITS OWN SCENE
@@ -135,12 +146,12 @@ void ofApp::keyPressed(int key){
 		
 	case 'z': startScene(Scene_DiffLine); break;
 	case 'x': startScene(Scene_DLA); break;
-	case 'c': startScene(Scene_Boids); break;
+	case 'c': startScene(Scene_SpaceColonization); break;
 	case 'v': startScene(Scene_ShaderTest); break;
 	case 'b': startScene(Scene_Julia2D); break;
 	case 'n': startScene(Scene_SimplexTerrain); break;
 	case 'm': startScene(Scene_DomainWarping); break;
-	case ',': startScene(Scene_SpaceColonization); break;
+	case ',': startScene(Scene_Boids); break;
 	case '1':	layers[0]->setActiveLayer(); break;
 	case '2':	layers[1]->setActiveLayer(); break;
 	case '3':	layers[2]->setActiveLayer(); break;

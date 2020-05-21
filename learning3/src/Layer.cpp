@@ -24,6 +24,7 @@
 int Layer::activeLayer;
 
 Layer::Layer() {
+
 }
 
 Layer::Layer(int i) {
@@ -32,6 +33,7 @@ Layer::Layer(int i) {
 }
 
 Layer::~Layer() {
+	delete scene;
 }
 
 
@@ -43,13 +45,20 @@ void Layer::setup(SceneType Type) {
 	ofDisableDepthTest();
 
 	scene = CreateScene(Type);
-	scene->setup();
 	sceneGroup.add(gui()); // add general scene menu
 	sceneGroup.add(scene->gui()); // add specific scene menu
 	sceneMenu.setup(sceneGroup);
 
+	scene->setup();
+
+	reset.addListener(this, &Layer::resetChanged);
+
 	bpm = 120;
 	timeSinceLastBeat = 0;
+}
+
+void Layer::resetChanged(bool &reset) {
+	scene->reset();
 }
 
 
@@ -60,14 +69,14 @@ ofParameterGroup Layer::gui()
 	params.setName("Scene Settings");                                       // ADD THIS NAME OF SIMULATION
 	params.add(opacity.set("Opacity", 255, 0, 255));
 	params.add(blendMode.set("Blend Mode", 1, 1, 4));
-	params.add(xSpeed.set("Speed", 1.0, 0.25, 4.0));                    // ADD THIS : button to double or halve speed
 	params.add(c1.set(ofColor(200, 100, 148)));
-	params.add(c2.set(ofColor(19, 60, 85)));
+	params.add(c2.set(ofColor(19, 140, 215)));
 	params.add(lighting.set("Lighting", true));
 	params.add(speedLight.set("Speed Light", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(10))); // make this a type variable
 	params.add(speedCamera.set("Rotation", ofVec3f::zero(), ofVec3f::zero(), ofVec3f(100)));
 	params.add(resetAtBpm.set("BPM follow", false));
 	params.add(xBpm.set("BPM Multiplier", 1, 0.001, 8.0));
+	params.add(reset.set("Reset", false));
 	return params;
 }
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\ofApp.cpp">
@@ -6,6 +6,69 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Helpers\Octree.cpp">
+      <Filter>src\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Overlay.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\DefaultScene.cpp">
+      <Filter>src\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\DiffLine.cpp">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\DLA.cpp">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\Node.cpp">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\RandomWalker.cpp">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.cpp">
+      <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.cpp">
+      <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp">
+      <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Particle Systems\Boids.cpp">
+      <Filter>src\Scenes\Particle Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Particle Systems\Snake\Snake.cpp">
+      <Filter>src\Scenes\Particle Systems\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Particle Systems\Test1.cpp">
+      <Filter>src\Scenes\Particle Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Shader Experimentations\DomainWarping.cpp">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Shader Experimentations\Julia2D.cpp">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Shader Experimentations\ShaderTest.cpp">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Shader Experimentations\SimplexTerrain.cpp">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.cpp">
       <Filter>addons\ofxGui\src</Filter>
@@ -37,81 +100,189 @@
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Overlay.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BleachBypassPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Layer.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BloomPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Growth Models\DiffLine.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ContrastPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Growth Models\DLA.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ConvolutionPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Growth Models\Node.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofAltPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Growth Models\RandomWalker.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Particle Systems\Boids.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\EdgePass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Shader Experimentations\DomainWarping.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FakeSSSPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Shader Experimentations\Julia2D.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FxaaPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Shader Experimentations\ShaderTest.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\GodRaysPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Shader Experimentations\SimplexTerrain.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HorizontalTiltShifPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\DefaultScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HsbShiftPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\KaleidoscopePass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LimbDarkeningPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LUTPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Helpers\Octree.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\NoiseWarpPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PixelatePass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Particle Systems\Test1.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PostProcessing.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Particle Systems\Snake\Snake.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RenderPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RGBShiftPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RimHighlightingPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\SSAOPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ToonPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\VerticalTiltShifPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ZoomBlurPass.cpp">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
       <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Helpers">
+      <UniqueIdentifier>{42883D2B-5DDC-DCC5-4523-CE8D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes">
+      <UniqueIdentifier>{6A6AB684-C3B3-7377-6FC5-6FBF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Growth Models">
+      <UniqueIdentifier>{C1581BD0-2190-0EE3-F1E2-16D5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Growth Models\SpaceColonization">
+      <UniqueIdentifier>{39ED3DF1-6448-0E09-53C2-0D8B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Particle Systems">
+      <UniqueIdentifier>{BECFC784-2F2E-4E83-0566-229F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Particle Systems\Snake">
+      <UniqueIdentifier>{55F2A01F-DF7C-BA6C-DFA5-223D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Shader Experimentations">
+      <UniqueIdentifier>{675A71D2-73B7-E62D-2404-265F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="addons">
-      <UniqueIdentifier>{03c2f463-79cb-4b30-ac40-2aa7af8d503c}</UniqueIdentifier>
+      <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\ofxGui">
-      <UniqueIdentifier>{50d105b0-fd1d-4aa0-bd70-78f730e5662d}</UniqueIdentifier>
+      <UniqueIdentifier>{4F2A59AF-5F4E-704B-D067-EC13}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\ofxGui\src">
-      <UniqueIdentifier>{4fb57524-3b4f-4f89-b5f8-000c84a42b60}</UniqueIdentifier>
+      <UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxPostProcessing">
+      <UniqueIdentifier>{AB514210-24FF-87A6-AE4B-9AE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxPostProcessing\src">
+      <UniqueIdentifier>{8E4D751F-6272-927D-3C6E-AFCE}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Global.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Helpers\Octree.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Overlay.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\DefaultScene.h">
+      <Filter>src\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\DiffLine.h">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\DLA.h">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\Node.h">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\RandomWalker.h">
+      <Filter>src\Scenes\Growth Models</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.h">
+      <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.h">
+      <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h">
+      <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Particle Systems\Boids.h">
+      <Filter>src\Scenes\Particle Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Particle Systems\Snake\Snake.h">
+      <Filter>src\Scenes\Particle Systems\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Particle Systems\Test1.h">
+      <Filter>src\Scenes\Particle Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Shader Experimentations\DomainWarping.h">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Shader Experimentations\Julia2D.h">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Shader Experimentations\ShaderTest.h">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Shader Experimentations\SimplexTerrain.h">
+      <Filter>src\Scenes\Shader Experimentations</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.h">
       <Filter>addons\ofxGui\src</Filter>
@@ -149,100 +320,86 @@
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Overlay.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BleachBypassPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Layer.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BloomPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Growth Models\DiffLine.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ContrastPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Growth Models\DLA.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ConvolutionPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Growth Models\Node.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofAltPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Growth Models\RandomWalker.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Particle Systems\Boids.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\EdgePass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Shader Experimentations\DomainWarping.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FakeSSSPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Shader Experimentations\Julia2D.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FxaaPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Shader Experimentations\ShaderTest.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\GodRaysPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Shader Experimentations\SimplexTerrain.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HorizontalTiltShifPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\DefaultScene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HsbShiftPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\KaleidoscopePass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LimbDarkeningPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LUTPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Helpers\Octree.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\NoiseWarpPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ofxPostProcessing.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Particle Systems\Test1.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PixelatePass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Particle Systems\Snake\Snake.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PostProcessing.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RenderPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RGBShiftPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RimHighlightingPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\SSAOPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ToonPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\VerticalTiltShifPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ZoomBlurPass.h">
+      <Filter>addons\ofxPostProcessing\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\data\shaders\Julia2D\shader.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\Julia2D\shader.vert">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\DomainWarping\domainwarping.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\DomainWarping\domainwarping.vert">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\ShaderTest\shaderTest.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\ShaderTest\shaderTest.vert">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\DefaultScene\defaultScene.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\SimplexTerrain\simplexTerrain.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\SimplexTerrain\simplexTerrain.vert">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\Noise\perlin.glsl">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\Noise\simplex.glsl">
-      <Filter>src</Filter>
-    </None>
   </ItemGroup>
 </Project>

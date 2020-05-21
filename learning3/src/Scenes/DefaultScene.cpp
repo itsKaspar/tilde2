@@ -5,6 +5,10 @@
 
 #include "DefaultScene.h"
 
+void DefaultScene::reset() {
+
+}
+
 ofParameterGroup DefaultScene::gui() {
 
 	// ##### GUI Setup
@@ -56,6 +60,3 @@ void DefaultScene::draw() {
 	ofPopMatrix();
 }
 
-void DefaultScene::reset() {
-
-}

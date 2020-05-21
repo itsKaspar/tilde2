@@ -10,9 +10,15 @@ ofParameterGroup DLA::gui() {
 	// ##### GUI Setup
 
 	params.setName("DLA");
+	params.add(isCentered.set("Centered", true));
+	params.add(is3D.set("3D", false));
+	params.add(drawOctree.set("Draw Octree", false));
 	params.add(sticky.set("Stickiness", 0.5, 0.0, 1.0));
 	params.add(towardsAggregation.set("Towards Aggregation", 0.0, 0.0, 1));
+	params.add(nWalkers.set("Walkers Amount", 100, 0, 10000));
+	params.add(sWalkers.set("Walkers Step", 1.0, 0.1, 10));
 	params.add(displayWalkers.set("Display Walkers", true));
+	params.add(spawnMode.set("Spawn Mode", 1, 1, 2));
 	return params;
 }
 
@@ -20,30 +26,39 @@ DLA::DLA() {
 	octree = new Octree(ofVec3f::zero(), ofGetWidth()*2, true);
 }
 DLA::~DLA() {
-	delete this;
+}
+
+void DLA::reset() {
+	walkers.clear();
+	fixed.clear();
+	octree->reset();
+	setup();
 }
 
 void DLA::setup() {
 
-	// ##### Settings
-
-	spawn = "random";
-	walkerQty = 500;
-	walkerWalk = 2;
-	sticky = 1;
-
 	// ##### Spawn Initial Dead
 	// random color interpol
+
 	float rndColorInterpol = ofRandom(0, 1);
 	fixed.push_back(RandomWalker(0, 0, 0, 0, 1, rndColorInterpol));
 	octree->insert(ofVec2f(0, 0)); // insert first one into octree
 
-	// ##### Spawn First lot of Walkers
+	// ##### Walker Spawn Mode
 
-	for (int i = 0; i < walkerQty; i++) {
+	switch (spawnMode)
+	{
+		case 1: spawn = "random"; break;
+		case 2: spawn = "walls"; break;
+		default: spawn = "random"; break;
+	}
+
+	// ##### Walkers Spawn
+
+	for (int i = 0; i < nWalkers; i++) {
 		// random color interpol
 		float rndColorInterpol = ofRandom(0, 1);
-		walkers.push_back(RandomWalker(spawn, walkerWalk, sticky, rndColorInterpol));
+		walkers.push_back(RandomWalker(spawn, sWalkers, sticky, rndColorInterpol, is3D));
 	}
 }
 
@@ -51,11 +66,11 @@ void DLA::update() {
 
 	// ##### Feed New Walkers
 
-	while (walkers.size() < walkerQty)
+	while (walkers.size() < nWalkers)
 	{
 		// random color interpol
 		float rndColorInterpol = ofRandom(0, 1);
-		walkers.push_back(RandomWalker(spawn, walkerWalk, sticky, rndColorInterpol));
+		walkers.push_back(RandomWalker(spawn, sWalkers, sticky, rndColorInterpol, is3D));
 	}
 
 	// ##### Update Position
@@ -109,21 +124,47 @@ void DLA::update() {
 
 void DLA::draw() {
 
-	octree->draw(c1, c2);
+	if(drawOctree) octree->draw(c1, c2);
+
+	// ##### Walkers Display
 
 	if (displayWalkers)
 	{
 		for (std::size_t i = 0; i != walkers.size(); ++i)
 		{
-			ofSetColor(ofColor(c1.r,c1.g,c1.b).lerp(ofColor(c2.r, c2.g, c2.b), walkers[i].ci),opacity);
-			//ofSetColor(c1.lerp(c2,walkers[i].ci), opacity);
-			ofDrawCircle(walkers[i].position.x, walkers[i].position.y, walkers[i].radius);
+			ofColor walkerColor = ofColor(ofColor(c1.r,c1.g,c1.b).lerp(ofColor(c2.r, c2.g, c2.b), walkers[i].ci),opacity);
+			//ofSetColor(c1.lerp(c2,walkers[i].ci), opacity);                                                               // CAN USE THIS INSTEAD ?
+
+			if (is3D) // 3D Render
+			{
+				material.setDiffuseColor(walkerColor);
+				material.begin();
+				ofDrawSphere(walkers[i].position.x, walkers[i].position.y, walkers[i].position.z, walkers[i].radius); 
+			}
+			else // 2D Render
+			{
+				ofSetColor(walkerColor);       
+				ofDrawCircle(walkers[i].position.x, walkers[i].position.y, walkers[i].radius);
+			}
 		}
 	}
 
+	// ##### Fixed Particles Display
+
 	for (std::size_t i = 0; i != fixed.size(); ++i)
 	{
-		ofSetColor(ofColor(c1.r, c1.g, c1.b).lerp(ofColor(c2.r, c2.g, c2.b), fixed[i].ci),opacity);
-		ofDrawCircle(fixed[i].position.x, fixed[i].position.y, fixed[i].radius);
+		ofColor fixedColor = ofColor(ofColor(c1.r, c1.g, c1.b).lerp(ofColor(c2.r, c2.g, c2.b), fixed[i].ci), opacity);
+
+		if (is3D) // 3D Render
+		{
+			material.setDiffuseColor(fixedColor);
+			material.begin();
+			ofDrawSphere(fixed[i].position.x, fixed[i].position.y, fixed[i].position.z, fixed[i].radius);
+		}
+		else // 2D Render
+		{
+			ofSetColor(fixedColor);
+			ofDrawCircle(fixed[i].position.x, fixed[i].position.y, fixed[i].radius);
+		}
 	}
 }

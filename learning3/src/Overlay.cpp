@@ -6,8 +6,8 @@ void Overlay::setup() {
 
 	params.setName("Main Settings");
 	params.add(fps.set("FPS", 120, 1, 1000)); // make this a typing variable
-	params.add(bgColor.set("Background Color", 50, 0, 255));
-	//params.add(opacity.set("opacity", 240, 0, 255));
+	params.add(bgColor.set("Background Color", 0, 0, 255));
+	params.add(opacity.set("opacity", 240, 0, 255));
 	params.add(fill.set("fill", true));
 
 	// ##### Examples of other Elements that can be added to the GUI

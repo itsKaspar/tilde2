@@ -11,8 +11,12 @@ DiffLine::DiffLine()
 }
 DiffLine::~DiffLine()
 {
+}
+
+void DiffLine::reset() {
 	nodes.clear();
-	delete octree;
+	octree->reset();
+	setup();
 }
 
 ofParameterGroup DiffLine::gui() {
@@ -80,6 +84,7 @@ void DiffLine::draw() {
 	} 
 
 	// if closed shape close using first point
+	ofSetColor(c2, opacity);
 	line.addVertex(nodes[0].position.x, nodes[0].position.y, nodes[0].position.z);
 	line.addVertex(nodes[1].position.x, nodes[1].position.y, nodes[1].position.z); // need to add this bc of smoothing makes me loose a point
 
@@ -89,10 +94,7 @@ void DiffLine::draw() {
 	line.draw();
 }
 
-void DiffLine::reset() {
-	nodes.clear();
-	setup();
-}
+
 
 void DiffLine::grow() {
 

@@ -13,7 +13,7 @@
 #include "Scene.h"
 #include "SCLeaf.h"
 #include "SCBranch.h"
-#include "Octree.h"
+//#include "Octree.h"
 
 class SpaceColonization : public Scene
 {
@@ -29,11 +29,25 @@ public:
 	void reset();
 	bool closeEnough(SCBranch b);
 
+	// BREANCHES PRIMITIVES
+
+	//void radiusChanged(float & radius);
+	//void resolutionChanged(int & resolution);
+	//void radiusDecreaseChanged(float & radiusDecrease);
+	//void setupTubes(ofxBranchesPrimitiveOptions opt);
+
 	// ##### GUI Setup
 
 	ofParameterGroup gui();
 	ofParameterGroup params;
+	ofParameter<bool> isCentered;
 	ofParameter<bool> is3D;
+	ofParameter<bool> drawLeaves;
+	ofParameter<float> minDist;
+	ofParameter<float> maxDist;
+	ofParameter<int> nLeaves;
+	ofParameter<float> crispy;
+
 	//ofParameter<bool> drawOctree;
 
 	// ##### Layer Settings
@@ -51,13 +65,11 @@ public:
 	vector<SCLeaf> leaves;
 	vector<SCBranch> branches;
 
-	float maxDist; // max dist for branch in range of leaf
-	float minDist; // min dist for branch in range of leaf
-
 	ofPolyline line;
 	//Octree *octree;
 
 private:
+
 };
 
 #endif

@@ -17,12 +17,11 @@
 class DLA : public Scene
 {
 public:
-	//using Layer::c1;
-	//using Layer::c2;
 
 	// ##### Basic Functions
 	DLA();
 	~DLA();
+	void reset();
 	void setup();
 	void update();
 	void draw();
@@ -31,9 +30,15 @@ public:
 
 	ofParameterGroup gui();
 	ofParameterGroup params;
+	ofParameter<bool> isCentered;
+	ofParameter<bool> is3D;
+	ofParameter<bool> drawOctree;
 	ofParameter<float> sticky;
 	ofParameter<float> towardsAggregation;
+	ofParameter<int> nWalkers;
+	ofParameter<float> sWalkers;
 	ofParameter<bool> displayWalkers;
+	ofParameter<int> spawnMode;
 
 	// ##### Layer Settings
 	

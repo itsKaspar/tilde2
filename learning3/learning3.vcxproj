@@ -100,7 +100,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\FX\Bloom;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -120,7 +120,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\FX\Bloom;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -140,7 +140,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\FX\Bloom;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -163,7 +163,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\FX\Bloom;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -194,7 +194,8 @@
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp" />
-    <ClCompile Include="src\Scenes\Particle Systems\Boids.cpp" />
+    <ClCompile Include="src\Scenes\Particle Systems\Boids\Boid.cpp" />
+    <ClCompile Include="src\Scenes\Particle Systems\Boids\Boids.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Snake\Snake.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Test1.cpp" />
     <ClCompile Include="src\Scenes\Shader Experimentations\DomainWarping.cpp" />
@@ -211,31 +212,6 @@
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BleachBypassPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BloomPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ContrastPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ConvolutionPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofAltPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\EdgePass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FakeSSSPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FxaaPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\GodRaysPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HorizontalTiltShifPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HsbShiftPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\KaleidoscopePass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LimbDarkeningPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LUTPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\NoiseWarpPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PixelatePass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PostProcessing.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RenderPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RGBShiftPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RimHighlightingPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\SSAOPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ToonPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\VerticalTiltShifPass.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ZoomBlurPass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h" />
@@ -252,7 +228,8 @@
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCBranch.h" />
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SCLeaf.h" />
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h" />
-    <ClInclude Include="src\Scenes\Particle Systems\Boids.h" />
+    <ClInclude Include="src\Scenes\Particle Systems\Boids\Boid.h" />
+    <ClInclude Include="src\Scenes\Particle Systems\Boids\Boids.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Snake\Snake.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Test1.h" />
     <ClInclude Include="src\Scenes\Shader Experimentations\DomainWarping.h" />
@@ -271,32 +248,6 @@
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BleachBypassPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\BloomPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ContrastPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ConvolutionPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofAltPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\DofPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\EdgePass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FakeSSSPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\FxaaPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\GodRaysPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HorizontalTiltShifPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\HsbShiftPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\KaleidoscopePass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LimbDarkeningPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\LUTPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\NoiseWarpPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ofxPostProcessing.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PixelatePass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\PostProcessing.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RenderPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RGBShiftPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\RimHighlightingPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\SSAOPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ToonPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\VerticalTiltShifPass.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxPostProcessing\src\ZoomBlurPass.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

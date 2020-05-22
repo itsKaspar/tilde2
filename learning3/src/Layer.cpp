@@ -174,6 +174,7 @@ void Layer::draw() {
 		camera.end();
 
 	//	// ##### Lights End
+
 		if (lighting)
 		{
 			material.end();
@@ -181,11 +182,6 @@ void Layer::draw() {
 			ofDisableDepthTest();
 		}
 	}
-
-	// ##### Display Scene Menu
-
-	if (id == activeLayer) sceneMenu.draw();
-
 }
 
 // Active Layer Handling

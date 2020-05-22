@@ -18,7 +18,7 @@ int main( ){
 	//ofSetupOpenGL(1280, 720, OF_FULLSCREEN);
 
 	ofGLFWWindowSettings settings;
-	settings.setGLVersion(3, 2); //we define the OpenGL version we want to use
+	settings.setGLVersion(4, 1); //we define the OpenGL version we want to use
 	settings.setSize(1280, 720);
 	ofCreateWindow(settings);
 

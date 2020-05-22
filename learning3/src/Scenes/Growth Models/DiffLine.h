@@ -20,12 +20,11 @@ public:
 
 	// ##### Basic Functions
 
-	//DiffLine();
-	//~DiffLine();
+	void reset();
 	void setup(); 
 	void update(); 
 	void draw();
-	void reset();
+
 
 	// ##### Other Functions
 
@@ -72,7 +71,6 @@ public:
 
 	ofPolyline line;
 	vector<Node> nodes;
-
 
 	Octree *octree;
 

@@ -100,6 +100,7 @@ public:
 	ofLight light;
 	ofMaterial material;
 
+	bool inTransition;
 private:
 
 };

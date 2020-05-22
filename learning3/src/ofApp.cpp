@@ -197,11 +197,12 @@ void ofApp::keyPressed(int key) {
 	case 'z': initSceneChange(Scene_DiffLine); break;
 	case 'x': initSceneChange(Scene_DLA); break;
 	case 'c': initSceneChange(Scene_SpaceColonization); break;
-	case 'v': initSceneChange(Scene_ShaderTest); break;
+	case 'v': initSceneChange(Scene_Boids); break;
 	case 'b': initSceneChange(Scene_Julia2D); break;
 	case 'n': initSceneChange(Scene_SimplexTerrain); break;
 	case 'm': initSceneChange(Scene_DomainWarping); break;
 	case ',': initSceneChange(Scene_Default); break;
+	case '.': initSceneChange(Scene_ShaderTest); break;
 	case '1':	layers[0]->setActiveLayer(); break;
 	case '2':	layers[1]->setActiveLayer(); break;
 	case '3':	layers[2]->setActiveLayer(); break;

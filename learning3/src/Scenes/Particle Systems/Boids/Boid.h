@@ -9,22 +9,26 @@ class Boid
 
 public:
 
-	Boid(ofVec3f p);
+	Boid(glm::vec3 p);
 	void update();
 
-	void edges();
+	//void edges();
 
 	void alignment(vector<Boid> v);
 	void separation(vector<Boid> v);
 	void cohesion(vector<Boid> v);
 
+	void draw();
 
-	ofVec3f pos; 
-	ofVec3f vel;
-	ofVec3f acc;
+
+	glm::vec3 pos;
+	glm::vec3 vel;
+	glm::vec3 acc;
 
 	float maxForce = 0.1;
 	float maxSpeed = 4;
+
+	ofTexture mTex;
 
 private:
 };

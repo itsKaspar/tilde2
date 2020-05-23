@@ -16,7 +16,7 @@ ofParameterGroup Boids::gui() {
 	// ##### GUI Setup
 
 	params.setName("Boids");
-	params.add(nBoids.set("Boids Qty", 500, 0, 1000));
+	params.add(nBoids.set("Boids Qty", 50, 0, 1000));
 	params.add(is3D.set("3D", false));
 	params.add(drawOctree.set("Draw Octree", false));
 	return params;
@@ -48,16 +48,16 @@ void Boids::update() {
 		vector <Boid> neighbours;
 		for (size_t j = 0; j < boids.size(); j++)
 		{
-			float distance = boids[i].pos.distance(boids[j].pos);
-			if (distance < 50)
+			float distance = glm::distance(boids[i].pos, boids[j].pos);
+			if (distance < 150)
 			{
 				neighbours.push_back(boids[j]);
 			}
 		}
 
-		boids[i].alignment(neighbours);
-		boids[i].cohesion(neighbours);
-		boids[i].separation(neighbours);
+		//boids[i].alignment(neighbours);
+		//boids[i].cohesion(neighbours);
+		//boids[i].separation(neighbours);
 
 		neighbours.clear();
 	}
@@ -65,7 +65,7 @@ void Boids::update() {
 	for (size_t i = 0; i < boids.size(); i++)
 	{
 		boids[i].update();
-		boids[i].edges();
+		//boids[i].edges();
 	}
 
 }
@@ -74,6 +74,6 @@ void Boids::draw() {
 
 	for (size_t i = 0; i < boids.size(); i++)
 	{
-		ofDrawCircle(boids[i].pos, 5);                // Make a function to show
+		boids[i].draw();
 	}
 }

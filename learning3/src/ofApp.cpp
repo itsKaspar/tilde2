@@ -143,7 +143,6 @@ void ofApp::draw() {
 	for (size_t i = 0; i < NUMLAYERS; i++) // draw every layer
 	{
 		layers[i]->draw();
-		std::cout << "value: " << layers[i]->getActiveLayer() << endl;
 	}
 
 	// ##### GUI - Draw

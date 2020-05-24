@@ -12,8 +12,6 @@ Boid::Boid(glm::vec3 p) {
 	// dir.allowExt("png"); //only show png files
 	//populate the directory object
 	dir.listDir();
-
-
 	int r = ofRandom(0, dir.size() - 1);
 	string rndImg = dir.getPath(r);
 
@@ -22,12 +20,24 @@ Boid::Boid(glm::vec3 p) {
 	ofDisableArbTex();
 	mTex.enableMipmap();
 	ofLoadImage(mTex, rndImg);
+
+	// Set Geometry
+
+	lWing.setParent(butterfly);
+	rWing.setParent(butterfly);
+
+	lWing.move(-110, 0,0);
+	rWing.move(110, 0, 0);
+
+	butterfly.move(pos);
 }
 
 void Boid::update() {
 	pos += vel;
 	vel += acc;
 	acc *= 0; // reset acceleration
+	butterfly.move(vel);
+	butterfly.rotate(vel);
 }
 
 //void Boid::edges() {
@@ -85,35 +95,19 @@ void Boid::separation(vector <Boid> nearbies) {
 
 
 void Boid::draw() {
-	ofSetColor(255,0,0);
-	ofDrawSphere(pos + vel, 5);
-	ofSetColor(255);
-	ofDrawSphere(pos, 5);
 
-	//ofDrawPlane(50.0, 50.0);//move back by the centre offset
+	//glm::vec3 head = pos + vel;
+	//glm::vec3 tail = pos;
 
+	//tail.draw();
 
-	//ofDrawCircle(pos, 5);                // Make a function to show
 	mTex.bind();
-	//ofDrawPlane(pos, 50.0, 50.0);
 
-	ofPushMatrix();
-	ofTranslate(pos); // Now my origin is my boid origin
-	// Now I need my origin axis to be aligned with my 
+	lWing.rotateAroundDeg(sin(ofGetElapsedTimef()), glm::vec3(1,0,0), glm::vec3(0, 0, 0));
+	rWing.rotateAroundDeg(sin(ofGetElapsedTimef()), glm::vec3(1,0,0), glm::vec3(0, 0, 0));
 
-	ofRotate(90, vel.x, vel.y, vel.z);
-
-	glm::vec3 plane1 = glm::vec3(- 30, 0, 0);
-	glm::vec3 plane2 = glm::vec3( 30, 0, 0);
-	ofDrawPlane(plane1, 50.0, 50.0);
-	ofDrawPlane(plane2, 50.0, 50.0);
-
-	ofPopMatrix();
-
-	//ofRotate(ofGetFrameNum() * .1, 0, 0, 1);//rotate from centre
-	//ofPushMatrix();
-	//ofDrawPlane(50.0, 50.0);//move back by the centre offset
-	//ofPopMatrix();
+	rWing.draw();
+	lWing.draw();
 
 
 	mTex.unbind();

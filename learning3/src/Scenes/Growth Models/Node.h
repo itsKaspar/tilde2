@@ -7,16 +7,16 @@
 class Node
 {
 public: 
-	Node(float x, float y, float z);
+	Node(glm::vec3 p);
 	void update();
 	void debugDraw();
-	void applyForce(ofVec3f force);
+	void applyForce(glm::vec3 force);
 
-	ofVec3f repulsionForce(vector<ofVec3f> nodes);
-	ofVec3f attractionForce(ofVec3f n1, ofVec3f n2);
+	glm::vec3 repulsionForce(vector<glm::vec3> nodes);
+	glm::vec3 attractionForce(glm::vec3 n1, glm::vec3 n2);
 
-	ofVec3f position;
-	ofVec3f velocity;
+	glm::vec3 position;
+	glm::vec3 velocity;
 
 	float maxForce;
 	float maxEdgeLen;

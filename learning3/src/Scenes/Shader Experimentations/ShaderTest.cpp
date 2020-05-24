@@ -29,10 +29,10 @@ void ShaderTest::draw() {
 
 	// ##### Plane Transformation
 
-	float cx = ofGetWidth() / 2.0; // get center x
-	float cy = ofGetHeight() / 2.0; // get center y
+	float cx = - ofGetWidth() / 2.0; // get center x
+	float cy = - ofGetHeight() / 2.0; // get center y
 	ofPushMatrix();
-	//ofTranslate(cx, cy);
+	ofTranslate(cx, cy);
 	//ofRotateDeg(180, rotation->x, rotation->y, rotation->z);
 
 	// ##### Shader Begin
@@ -42,7 +42,8 @@ void ShaderTest::draw() {
 	// ##### Pass Uniform Variables
 
 	shader.setUniform1f("time", ofGetElapsedTimef());
-	shader.setUniform1f("scale", scale);
+	shader.setUniform1f("w", ofGetWidth());
+	shader.setUniform1f("h", ofGetHeight());
 
 	// ##### Setup Shader Canvas
 	ofFill(); 

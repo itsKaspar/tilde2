@@ -36,7 +36,7 @@ public:
 
 	// ##### Helper Functions
 
-	void interpolate(int i, ofVec3f v1, ofVec3f v2);
+	void interpolate(int i, glm::vec3 v1, glm::vec3 v2);
 	int idxFix(int i);
 
 	// ##### GUI Setup

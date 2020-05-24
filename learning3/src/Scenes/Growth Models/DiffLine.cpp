@@ -23,7 +23,7 @@ ofParameterGroup DiffLine::gui() {
 
 void DiffLine::setup() {
 
-	octree = new Octree(ofVec3f(0, 0, 0), ofGetWidth() * 2, true);
+	octree = new Octree(glm::vec3(0, 0, 0), ofGetWidth() * 2, true);
 
 	// ##### Initial circle
 
@@ -45,7 +45,7 @@ void DiffLine::setup() {
 		float y = sin(i) * r + cy;
 		float z = is3D ? ofRandom(-2, 2) + cz : cz;
 
-		addNode(Node(x, y, z)); // add Node to nodes list
+		addNode(Node(glm::vec3(x,y,z))); // add Node to nodes list
 
 		i += HALF_PI*0.9;
 	}
@@ -60,7 +60,7 @@ void DiffLine::update() {
 	// NEED TO MAKE A FUNCTION TO UPDATE THE OCTREE INSTEAD OF REPLACING IT, JUST CHECHKING VECTOR POSITIONS
 	for (size_t i = 0; i < nodes.size(); i++)
 	{
-		octree->insert(ofVec3f(nodes[i].position.x, nodes[i].position.y, nodes[i].position.z)); // insert into octree
+		octree->insert(glm::vec3(nodes[i].position.x, nodes[i].position.y, nodes[i].position.z)); // insert into octree
 	}
 }
 
@@ -101,10 +101,10 @@ void DiffLine::grow() {
 	// EdgeBreak Growth
 	for (std::size_t i = nodes.size(); i != 0; --i)
 	{
-		ofVec3f v1 = nodes[i % nodes.size()].position;
-		ofVec3f v2 = nodes[i - 1].position;
+		glm::vec3 v1 = nodes[i % nodes.size()].position;
+		glm::vec3 v2 = nodes[i - 1].position;
 
-		float distance = v1.distance(v2);
+		float distance = glm::distance(v1, v2);
 		if (distance > nodes[i - 1].maxEdgeLen) {
 			interpolate(i, v1, v2);
 		}
@@ -121,9 +121,9 @@ void DiffLine::grow() {
 	}*/
 }
 
-void DiffLine::interpolate(int i, ofVec3f v1, ofVec3f v2) {
-	Node n = Node(0, 0, 0);
-	n.position = v1.getInterpolated(v2, 0.5);
+void DiffLine::interpolate(int i, glm::vec3 v1, glm::vec3 v2) {
+	Node n = Node(glm::vec3(0,0,0));
+	n.position = glm::mix(v1, v2, 0.5);
 	addNodeAt(i, n);
 }
 
@@ -133,15 +133,15 @@ void DiffLine::differentiate() {
 	std::vector<Node>::iterator i; // define a list iterator
 	for (std::size_t i = 0; i != nodes.size(); ++i)
 	{
-		ofVec3f v1 = nodes[i].position;
-		ofVec3f v2 = nodes[(i + 1) % nodes.size()].position;
+		glm::vec3 v1 = nodes[i].position;
+		glm::vec3 v2 = nodes[(i + 1) % nodes.size()].position;
 
 		// Construct Neighbours
-		//vector<ofVec3f> neighbours;
+		//vector<glm::vec3> neighbours;
 		std::vector<Node>::iterator j;
 
 		// Look for nodes in range inside octree
-		vector<ofVec3f> found = octree->queryInRadius(nodes[i].position,50);
+		vector<glm::vec3> found = octree->queryInRadius(nodes[i].position,50);
 
 		/*
 		for (std::size_t j = 0; j != nodes.size(); ++j)
@@ -153,8 +153,8 @@ void DiffLine::differentiate() {
 		}*/
 
 		// Get Forces
-		ofVec3f attractionForce = nodes[i].attractionForce(v1, v2);
-		ofVec3f repulsionForce = nodes[i].repulsionForce(found);
+		glm::vec3 attractionForce = nodes[i].attractionForce(v1, v2);
+		glm::vec3 repulsionForce = nodes[i].repulsionForce(found);
 
 		// Apply Multipliers
 		attractionForce = attractionForce * xAttraction;
@@ -173,12 +173,12 @@ void DiffLine::differentiate() {
 }
 
 void DiffLine::addNode(Node node) {
-	octree->insert(ofVec3f(node.position.x, node.position.y, node.position.z)); // insert into octree
+	octree->insert(glm::vec3(node.position.x, node.position.y, node.position.z)); // insert into octree
 	nodes.push_back(node);
 }
 
 void DiffLine::addNodeAt(int i, Node node) {
-	octree->insert(ofVec3f(node.position.x, node.position.y, node.position.z)); // insert into octree
+	octree->insert(glm::vec3(node.position.x, node.position.y, node.position.z)); // insert into octree
 	std::vector<Node>::iterator it = nodes.begin() + i;
 	nodes.insert(it, node);
 }

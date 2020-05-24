@@ -8,15 +8,15 @@
 class RandomWalker
 {
 public:
-	RandomWalker(float x, float y, float z, float walk, float stick, float colorInterpol);
-	RandomWalker(string spawn, float walk, float stick, float colorInterpol, bool is3D);
+	RandomWalker(glm::vec3 pos, float radius, float walk, float stick, float colorInterpol);
+	RandomWalker(string spawn, float radius, float walk, float stick, float colorInterpol, bool is3D);
 	void update();
 	void debugDraw();
 	void applyForce(ofVec3f force);
 	void walk();
 
-	ofVec3f position;
-	ofVec3f velocity;
+	glm::vec3 pos;
+	glm::vec3 vel;
 	float ci; // color interpolation
 
 	float randomWalk;

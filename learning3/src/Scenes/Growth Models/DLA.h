@@ -30,6 +30,7 @@ public:
 
 	ofParameterGroup gui();
 	ofParameterGroup params;
+	ofParameter<int> xSteps;
 	ofParameter<bool> isCentered;
 	ofParameter<bool> is3D;
 	ofParameter<bool> drawOctree;
@@ -37,6 +38,7 @@ public:
 	ofParameter<float> towardsAggregation;
 	ofParameter<int> nWalkers;
 	ofParameter<float> sWalkers;
+	ofParameter<float> walkerRadius;
 	ofParameter<bool> displayWalkers;
 	ofParameter<int> spawnMode;
 

@@ -16,27 +16,27 @@ class Octree
 public:
 
 	Octree();
-	Octree(ofVec3f p, float s, bool isRoot);
+	Octree(glm::vec3 p, float s, bool isRoot);
 	~Octree();
 	void draw(ofColor c1, ofColor c2);
-	bool insert(ofVec3f v);
+	bool insert(glm::vec3 v);
 	void reset();
 
-	bool isInBounds(ofVec3f n, Octree o);
-	//bool isInBounds(ofVec3f n);
-	void subdivide(ofVec3f p); // takes center of this octree
+	bool isInBounds(glm::vec3 n, Octree o);
+	//bool isInBounds(glm::vec3 n);
+	void subdivide(glm::vec3 p); // takes center of this octree
 
 	int getNumPoints();
 
-	vector<ofVec3f> Octree::queryInRadius(ofVec3f p, float r);
+	vector<glm::vec3> Octree::queryInRadius(glm::vec3 p, float r);
 
 	// # Helper Function
-	bool intersects(ofVec3f c, float r); // check if sphere intersects octree
-	bool inRadius(ofVec3f c, float r, ofVec3f p); // check if points is in radius
+	bool intersects(glm::vec3 c , float r); // check if sphere intersects octree
+	bool inRadius(glm::vec3 c, float r, glm::vec3 p); // check if points is in radius
 
 	Octree *children[8];
 
-	ofVec3f pos; // center of cube
+	glm::vec3 pos; // center of cube
 	float size; // size of cube
 	bool isRoot;
 
@@ -45,7 +45,7 @@ public:
 	int depth;
 
 	int capacity;
-	vector<ofVec3f> points; // list of Nodes inside
+	vector<glm::vec3> points; // list of Nodes inside
 
 private:
 };

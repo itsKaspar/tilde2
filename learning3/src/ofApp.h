@@ -5,7 +5,7 @@
 #include "Overlay.h"
 #include "Layer.h"
 
-#define NUMLAYERS 3
+#define NUMLAYERS 1
 struct LayerTransHelper {
 	bool finished, changed;
 	SceneType type;

@@ -1,26 +1,49 @@
 #include "RandomWalker.h"
 
-RandomWalker::RandomWalker(float x, float y, float z, float walk, float stick, float colorInterpol) {
+RandomWalker::RandomWalker(glm::vec3 p, float rad, float walk, float stick, float colorInterpol) {
 
-	position.set(x, y, z);
+	pos = p;
 	randomWalk = walk; 
-	radius = ofRandom(1,3);
+	radius = rad;
 	sticky = stick;
 	ci = colorInterpol;
 }
 
-RandomWalker::RandomWalker(string spawn, float walk, float stick, float colorInterpol, bool is3D) {
+RandomWalker::RandomWalker(string spawn, float rad, float walk, float stick, float colorInterpol, bool is3D) {
 
 	randomWalk = walk;
-	radius = ofRandom(1, 3);
+	radius = rad;
 	sticky = stick;
 	ci = colorInterpol;
 
 	float w = ofGetWidth();
 	float h = ofGetHeight();
 
+	if (spawn == "sphere")
+	{
+		float r = h / 2; // radius
+
+		if(is3D)
+		{
+			pos.z = ofRandom(-r, r);
+			float phi = ofRandom(0, 2 * PI);
+			pos.x = sqrt((r*r - pos.z * pos.z)) * cos(phi);
+			pos.y = sqrt((r*r - pos.z * pos.z)) * sin(phi);
+		}
+		else
+		{
+			float phi = ofRandom(0, 2 * PI);
+			pos.x = cos(phi) * r;
+			pos.y = sin(phi) * r;
+			pos.z = 0;
+		}
+	}
+
+	/*
 	if (!is3D)
 	{
+
+
 		if (spawn == "walls")
 		{
 			int wall = (int)ofRandom(1, 5);
@@ -107,34 +130,41 @@ RandomWalker::RandomWalker(string spawn, float walk, float stick, float colorInt
 			position.z = ofRandom(-w / 2, w / 2);
 		}
 	}
+	*/
 }
 
 
 void RandomWalker::update() {
 	walk();
-	position += velocity;
 
-	// Clamp Values to world space
-	position.x = ofClamp(position.x, -ofGetWidth() / 2, ofGetWidth() / 2);
-	position.y = ofClamp(position.y, -ofGetWidth() / 2, ofGetWidth() / 2);
+	// only apply movement if movement stays inside of sphere
+	if (glm::distance(pos + vel, glm::vec3(0, 0, 0)) < ofGetHeight() / 2)
+	{
+		pos += vel;
+	}
+	else
+	{
+		pos -= glm::normalize(pos) * randomWalk;
+	}
 
-	velocity.set(0, 0, 0);
+	vel = glm::vec3(0,0,0);
 }
 
 void RandomWalker::debugDraw()
 {
 	ofSetColor(255, 0, 0, 255);
-	ofDrawCircle(position.x, position.y, radius);
+	ofDrawCircle(pos.x, pos.y, radius);
 	ofSetColor(255, 255, 255, 255);
 }
 
 void RandomWalker::applyForce(ofVec3f force) {
-	velocity += force;
+	vel += force;
 }
 
 void RandomWalker::walk() {
-	velocity.x += ofRandom(-randomWalk, randomWalk);
-	velocity.y += ofRandom(-randomWalk, randomWalk);
+	vel.x += ofRandom(-randomWalk, randomWalk);
+	vel.y += ofRandom(-randomWalk, randomWalk);
+	//vel.z += ofRandom(-randomWalk, randomWalk);
 }
 
 

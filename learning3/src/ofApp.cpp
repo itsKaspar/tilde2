@@ -32,7 +32,7 @@ void ofApp::setup() {
 
 	for (size_t i = 0; i < NUMLAYERS; ++i)
 	{
-		layers[i] = new Layer(i + 1, Scene_Default);
+		layers[i] = new Layer(i + 1, Scene_Boids);
 		layers[i]->setup();
 		layers[i]->inTransition = false;
 	}

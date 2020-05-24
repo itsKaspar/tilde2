@@ -7,7 +7,7 @@
 
 void Boids::reset() {
 	boids.clear();
-	octree->reset();
+	//octree->reset();
 	setup();
 }
 
@@ -16,7 +16,7 @@ ofParameterGroup Boids::gui() {
 	// ##### GUI Setup
 
 	params.setName("Boids");
-	params.add(nBoids.set("Boids Qty", 50, 0, 1000));
+	params.add(nBoids.set("Boids Qty", 1, 0, 1000));
 	params.add(is3D.set("3D", false));
 	params.add(drawOctree.set("Draw Octree", false));
 	return params;

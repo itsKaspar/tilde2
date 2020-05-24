@@ -261,6 +261,12 @@
       <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\data\shaders\DomainWarping\domainwarping.frag" />
+    <None Include="bin\data\shaders\ShaderTest\Functions.frag" />
+    <None Include="bin\data\shaders\ShaderTest\shaderTest.frag" />
+    <None Include="bin\data\shaders\SimplexTerrain\simplexTerrain.frag" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ProjectExtensions>
     <VisualStudio>

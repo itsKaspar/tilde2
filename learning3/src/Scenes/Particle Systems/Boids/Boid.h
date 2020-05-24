@@ -29,7 +29,7 @@ public:
 	float maxSpeed = 4;
 
 	ofTexture mTex;
-	ofNode butterfly;
+	ofBoxPrimitive butterfly;
 	ofPlanePrimitive lWing ,rWing;
 
 private:

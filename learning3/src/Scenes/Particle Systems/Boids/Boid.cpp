@@ -37,7 +37,6 @@ void Boid::update() {
 	vel += acc;
 	acc *= 0; // reset acceleration
 	butterfly.move(vel);
-	butterfly.rotate(vel);
 }
 
 //void Boid::edges() {
@@ -99,12 +98,12 @@ void Boid::draw() {
 	//glm::vec3 head = pos + vel;
 	//glm::vec3 tail = pos;
 
-	//tail.draw();
+	butterfly.draw();
 
 	mTex.bind();
 
-	lWing.rotateAroundDeg(sin(ofGetElapsedTimef()), glm::vec3(1,0,0), glm::vec3(0, 0, 0));
-	rWing.rotateAroundDeg(sin(ofGetElapsedTimef()), glm::vec3(1,0,0), glm::vec3(0, 0, 0));
+	//lWing.rotateAroundDeg(sin(ofGetElapsedTimef()), glm::vec3(0,1,0), glm::vec3(0, 0, 0));
+	//rWing.rotateAroundDeg(sin(ofGetElapsedTimef()), glm::vec3(0,1,0), glm::vec3(0, 0, 0));
 
 	rWing.draw();
 	lWing.draw();

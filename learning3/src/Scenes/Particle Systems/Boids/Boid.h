@@ -15,14 +15,14 @@ public:
 
 	//void edges();
 
-	void alignment(vector<Boid> v);
-	void separation(vector<Boid> v);
-	void cohesion(vector<Boid> v);
-
 	void draw();
 
-	float maxForce = 0.1;
-	float maxSpeed = 4;
+	float maxForce = 1;
+	float maxSpeed = 10;
+
+	float alignmentForce = 1;
+	float separationForce = 1.2;
+	float cohesionForce = 1;
 
 	ofTexture mTex;
 	ofNode butterfly;

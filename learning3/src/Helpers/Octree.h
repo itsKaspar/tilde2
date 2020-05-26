@@ -9,6 +9,7 @@
 #define _OCTREE
 
 #include "ofMain.h" 
+#include "Particle.h"
 
 class Octree
 {
@@ -45,7 +46,9 @@ public:
 	int depth;
 
 	int capacity;
+
 	vector<glm::vec3> points; // list of Nodes inside
+	vector<Particle*> particles;
 
 private:
 };

@@ -16,7 +16,7 @@ ofParameterGroup Boids::gui() {
 	// ##### GUI Setup
 
 	params.setName("Boids");
-	params.add(nBoids.set("Boids Qty", 10, 0, 1000));
+	params.add(nBoids.set("Boids Qty", 400, 0, 1000));
 	params.add(is3D.set("3D", false));
 	//params.add(drawOctree.set("Draw Octree", false));
 	return params;
@@ -47,7 +47,7 @@ void Boids::update() {
 	
 	for (size_t i = 0; i < boids.size(); i++)
 	{
-		vector<Boid> neighbours;
+		vector<Particle> neighbours;
 		for (size_t j = 0; j < boids.size(); j++)
 		{
 			float distance = glm::distance(boids[i]->pos, boids[j]->pos);
@@ -57,9 +57,14 @@ void Boids::update() {
 			}
 		}
 
-		//boids[i]->alignment(neighbours);
-		//boids[i]->cohesion(neighbours);
-		//boids[i]->separation(neighbours);
+		// Make two cases, one where the alignement forces are all the same
+		// and one when each boid has a different rate
+
+		boids[i]->alignment(neighbours, boids[i]->alignmentForce, boids[i]->maxSpeed);
+		boids[i]->cohesion(neighbours, boids[i]->cohesionForce, boids[i]->maxSpeed);
+		boids[i]->separation(neighbours, boids[i]->separationForce, boids[i]->maxSpeed);
+
+		boids[i]->containment();
 
 		neighbours.clear();
 	}

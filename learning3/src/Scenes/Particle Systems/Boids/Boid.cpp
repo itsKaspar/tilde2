@@ -25,31 +25,18 @@ Boid::Boid(glm::vec3 p) {
 
 	lWing.setParent(butterfly);
 	rWing.setParent(butterfly);
-	lWing.move(-110, 0,0);
-	rWing.move(110, 0, 0);
+	lWing.move(0, -60, 0);
+	rWing.move(0, 60, 0);
+	lWing.rotateDeg(90, glm::vec3(0, 1, 0));
+	rWing.rotateDeg(90, glm::vec3(0, 1, 0));
 	butterfly.setGlobalPosition(p);
 }
 
 void Boid::update() {
 	Particle::update();
 	butterfly.move(Particle::vel);
+	butterfly.lookAt(pos + vel);
 
-	// given base orientation (u) and goal orientation (v)
-	glm::vec3 u = butterfly.getOrientationEulerDeg();
-	glm::vec3 v = Particle::vel;
-
-	// find the rotation axis (w) = the vector orthogonal to (u) and (v)
-	glm::vec3 w;
-	w.z = 1; // fix this else infinite solutions
-	w.x = w.z * (u.z * v.y - u.y * v.z) / u.y * v.x - u.x * v.y; // used the property that u.w = 0 and v.w = 0
-	w.y = w.z * (u.z * v.x - u.x * v.z) / u.x * v.y - u.y * v.x; // when w is orthogonal to u and v
-
-	// now I calculate the angle (a) between (u) and (v)
-	float a = acos(dot(u, v) / length(u)*length(v));
-
-	// now use the rotation axis and the angle calculate to rotate my butterfly from u to v
-	butterfly.rotateDeg(a, w);
-	//butterfly.setOrientation(Particle::vel);
 }
 
 //void Boid::edges() {

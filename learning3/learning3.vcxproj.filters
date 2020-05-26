@@ -10,6 +10,9 @@
     <ClCompile Include="src\Helpers\Octree.cpp">
       <Filter>src\Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="src\Helpers\Particle.cpp">
+      <Filter>src\Helpers</Filter>
+    </ClCompile>
     <ClCompile Include="src\Layer.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -27,6 +30,9 @@
     </ClCompile>
     <ClCompile Include="src\Scenes\DefaultScene.cpp">
       <Filter>src\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\Collatz\Collatz.cpp">
+      <Filter>src\Scenes\Growth Models\Collatz</Filter>
     </ClCompile>
     <ClCompile Include="src\Scenes\Growth Models\DiffLine.cpp">
       <Filter>src\Scenes\Growth Models</Filter>
@@ -49,8 +55,14 @@
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp">
       <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scenes\Particle Systems\Boids\Boid.cpp">
+      <Filter>src\Scenes\Particle Systems\Boids</Filter>
+    </ClCompile>
     <ClCompile Include="src\Scenes\Particle Systems\Boids\Boids.cpp">
       <Filter>src\Scenes\Particle Systems\Boids</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\Particle Systems\FluidSimulation\FluidSimulation.cpp">
+      <Filter>src\Scenes\Particle Systems\FluidSimulation</Filter>
     </ClCompile>
     <ClCompile Include="src\Scenes\Particle Systems\Snake\Snake.cpp">
       <Filter>src\Scenes\Particle Systems\Snake</Filter>
@@ -100,8 +112,8 @@
     <ClCompile Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scenes\Particle Systems\Boids\Boid.cpp">
-      <Filter>src\Scenes\Particle Systems\Boids</Filter>
+    <ClCompile Include="src\Scenes\Particle Systems\FluidSimulation\Fluid.cpp">
+      <Filter>src\Scenes\Particle Systems\FluidSimulation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +129,9 @@
     <Filter Include="src\Scenes\Growth Models">
       <UniqueIdentifier>{C1581BD0-2190-0EE3-F1E2-16D5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Scenes\Growth Models\Collatz">
+      <UniqueIdentifier>{FC8ED397-F4DC-BD39-86A1-B13A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Scenes\Growth Models\SpaceColonization">
       <UniqueIdentifier>{39ED3DF1-6448-0E09-53C2-0D8B}</UniqueIdentifier>
     </Filter>
@@ -125,6 +140,9 @@
     </Filter>
     <Filter Include="src\Scenes\Particle Systems\Boids">
       <UniqueIdentifier>{3CD1435D-881F-2931-B81F-9BC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Particle Systems\FluidSimulation">
+      <UniqueIdentifier>{A64E47E0-6ED9-7AEC-7EED-5611}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Scenes\Particle Systems\Snake">
       <UniqueIdentifier>{55F2A01F-DF7C-BA6C-DFA5-223D}</UniqueIdentifier>
@@ -152,6 +170,9 @@
     <ClInclude Include="src\Helpers\Octree.h">
       <Filter>src\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="src\Helpers\Particle.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
     <ClInclude Include="src\Layer.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -166,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="src\Scenes\DefaultScene.h">
       <Filter>src\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\Collatz\Collatz.h">
+      <Filter>src\Scenes\Growth Models\Collatz</Filter>
     </ClInclude>
     <ClInclude Include="src\Scenes\Growth Models\DiffLine.h">
       <Filter>src\Scenes\Growth Models</Filter>
@@ -188,8 +212,14 @@
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h">
       <Filter>src\Scenes\Growth Models\SpaceColonization</Filter>
     </ClInclude>
+    <ClInclude Include="src\Scenes\Particle Systems\Boids\Boid.h">
+      <Filter>src\Scenes\Particle Systems\Boids</Filter>
+    </ClInclude>
     <ClInclude Include="src\Scenes\Particle Systems\Boids\Boids.h">
       <Filter>src\Scenes\Particle Systems\Boids</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Particle Systems\FluidSimulation\FluidSimulation.h">
+      <Filter>src\Scenes\Particle Systems\FluidSimulation</Filter>
     </ClInclude>
     <ClInclude Include="src\Scenes\Particle Systems\Snake\Snake.h">
       <Filter>src\Scenes\Particle Systems\Snake</Filter>
@@ -245,25 +275,11 @@
     <ClInclude Include="..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scenes\Particle Systems\Boids\Boid.h">
-      <Filter>src\Scenes\Particle Systems\Boids</Filter>
+    <ClInclude Include="src\Scenes\Particle Systems\FluidSimulation\Fluid.h">
+      <Filter>src\Scenes\Particle Systems\FluidSimulation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\data\shaders\ShaderTest\shaderTest.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\ShaderTest\Functions.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\DomainWarping\domainwarping.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shaders\SimplexTerrain\simplexTerrain.frag">
-      <Filter>src</Filter>
-    </None>
   </ItemGroup>
 </Project>

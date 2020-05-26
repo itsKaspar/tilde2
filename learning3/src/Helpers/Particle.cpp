@@ -8,10 +8,16 @@
 Particle::Particle() {
 }
 
-Particle::Particle(glm::vec3 p) {
-
-	pos = p;
-}
 Particle::~Particle() {
 
+}
+
+void Particle::update() {
+	pos += vel;
+	vel += acc;
+	acc *= 0; // reset acceleration
+}
+
+void Particle::debugDraw() {
+	ofDrawSphere(pos, 5);
 }

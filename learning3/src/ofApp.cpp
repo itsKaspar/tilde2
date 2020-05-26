@@ -46,8 +46,6 @@ void ofApp::setup() {
 //--------------------------------------------------------------
 void ofApp::update() {
 
-
-
 	// # Fullscreen toggle doesn't work with keyboard f for fullscreen
 	// if (fullScreenToggle) ofSetFullscreen(true); else ofSetFullscreen(false);
 
@@ -161,7 +159,6 @@ void ofApp::draw() {
 	// Webcam 
 	//webcam.draw((ofGetWidth() / 2) - 360, (ofGetHeight() / 2) - 240, 360, 240);               // PUT THIS INTO ITS OWN SCENE
 
-
 	// Drag and Drop Image && Video                                                                                                      // PUT THIS INTO ITS OWN SCENE
 	//for (int i = 0; i < dropImage.size(); i++) dropImage[i].draw(0 - dropImage[i].getWidth() / 2, 0 - dropImage[i].getHeight() / 2);
 	//for (int v = 0; v < dropImage.size(); v++) dropVideo[v].draw(0 - dropVideo[v].getWidth() / 2, 0 - dropVideo[v].getHeight() / 2);
@@ -185,7 +182,7 @@ void ofApp::keyPressed(int key) {
 	case 'o':
 		displayGui = displayGui ? false : true;
 		break;
-	case 'f':
+	case 'q':
 		//ofToggleFullscreen();
 		//fbo.allocate(ofGetWidth(), ofGetHeight());
 		//fbo.begin();
@@ -193,15 +190,18 @@ void ofApp::keyPressed(int key) {
 		//fbo.end();
 		break;
 
-	case 'z': initSceneChange(Scene_DiffLine); break;
-	case 'x': initSceneChange(Scene_DLA); break;
-	case 'c': initSceneChange(Scene_SpaceColonization); break;
-	case 'v': initSceneChange(Scene_Boids); break;
-	case 'b': initSceneChange(Scene_Julia2D); break;
-	case 'n': initSceneChange(Scene_SimplexTerrain); break;
-	case 'm': initSceneChange(Scene_DomainWarping); break;
-	case ',': initSceneChange(Scene_Default); break;
-	case '.': initSceneChange(Scene_ShaderTest); break;
+	case 'a': initSceneChange(Scene_DiffLine); break;
+	case 's': initSceneChange(Scene_DLA); break;
+	case 'd': initSceneChange(Scene_SpaceColonization); break;
+	case 'f': initSceneChange(Scene_Boids); break;
+	case 'g': initSceneChange(Scene_Collatz); break;
+	case 'h': initSceneChange(Scene_FluidSimulation); break;
+	//case 'j': initSceneChange(Scene_LSystem); break;
+	case 'z': initSceneChange(Scene_Julia2D); break;
+	case 'x': initSceneChange(Scene_SimplexTerrain); break;
+	case 'c': initSceneChange(Scene_DomainWarping); break;
+	case 'v': initSceneChange(Scene_Default); break;
+	case 'b': initSceneChange(Scene_ShaderTest); break;
 	case '1':	layers[0]->setActiveLayer(); break;
 	case '2':	layers[1]->setActiveLayer(); break;
 	case '3':	layers[2]->setActiveLayer(); break;

@@ -100,7 +100,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\Collatz;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\FluidSimulation;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -120,7 +120,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\Collatz;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\FluidSimulation;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -140,7 +140,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\Collatz;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\FluidSimulation;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -163,7 +163,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Helpers;src\Scenes;src\Scenes\Growth Models;src\Scenes\Growth Models\Collatz;src\Scenes\Growth Models\SpaceColonization;src\Scenes\Particle Systems;src\Scenes\Particle Systems\Boids;src\Scenes\Particle Systems\FluidSimulation;src\Scenes\Particle Systems\Snake;src\Scenes\Shader Experimentations;..\..\..\..\..\..\Program Files\of_v0.11.0_vs2017_release\of_v0.11.0_vs2017_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -183,10 +183,12 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Helpers\Octree.cpp" />
+    <ClCompile Include="src\Helpers\Particle.cpp" />
     <ClCompile Include="src\Layer.cpp" />
     <ClCompile Include="src\Overlay.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\Scenes\DefaultScene.cpp" />
+    <ClCompile Include="src\Scenes\Growth Models\Collatz\Collatz.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\DiffLine.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\DLA.cpp" />
     <ClCompile Include="src\Scenes\Growth Models\Node.cpp" />
@@ -196,6 +198,8 @@
     <ClCompile Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Boids\Boid.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Boids\Boids.cpp" />
+    <ClCompile Include="src\Scenes\Particle Systems\FluidSimulation\Fluid.cpp" />
+    <ClCompile Include="src\Scenes\Particle Systems\FluidSimulation\FluidSimulation.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Snake\Snake.cpp" />
     <ClCompile Include="src\Scenes\Particle Systems\Test1.cpp" />
     <ClCompile Include="src\Scenes\Shader Experimentations\DomainWarping.cpp" />
@@ -217,10 +221,12 @@
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Global.h" />
     <ClInclude Include="src\Helpers\Octree.h" />
+    <ClInclude Include="src\Helpers\Particle.h" />
     <ClInclude Include="src\Layer.h" />
     <ClInclude Include="src\Overlay.h" />
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\Scenes\DefaultScene.h" />
+    <ClInclude Include="src\Scenes\Growth Models\Collatz\Collatz.h" />
     <ClInclude Include="src\Scenes\Growth Models\DiffLine.h" />
     <ClInclude Include="src\Scenes\Growth Models\DLA.h" />
     <ClInclude Include="src\Scenes\Growth Models\Node.h" />
@@ -230,6 +236,8 @@
     <ClInclude Include="src\Scenes\Growth Models\SpaceColonization\SpaceColonization.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Boids\Boid.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Boids\Boids.h" />
+    <ClInclude Include="src\Scenes\Particle Systems\FluidSimulation\Fluid.h" />
+    <ClInclude Include="src\Scenes\Particle Systems\FluidSimulation\FluidSimulation.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Snake\Snake.h" />
     <ClInclude Include="src\Scenes\Particle Systems\Test1.h" />
     <ClInclude Include="src\Scenes\Shader Experimentations\DomainWarping.h" />
@@ -260,12 +268,6 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\data\shaders\DomainWarping\domainwarping.frag" />
-    <None Include="bin\data\shaders\ShaderTest\Functions.frag" />
-    <None Include="bin\data\shaders\ShaderTest\shaderTest.frag" />
-    <None Include="bin\data\shaders\SimplexTerrain\simplexTerrain.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ProjectExtensions>

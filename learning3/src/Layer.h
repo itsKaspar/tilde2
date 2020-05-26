@@ -24,9 +24,12 @@ enum SceneType
 	Scene_DiffLine,
 	Scene_DLA,
 	Scene_SpaceColonization,
+	Scene_Collatz,
+	//Scene_LSystem,
 
 	// Particle Systems
 	Scene_Boids,
+	Scene_FluidSimulation,
 
 	// Shader Experimentations
 	Scene_ShaderTest,

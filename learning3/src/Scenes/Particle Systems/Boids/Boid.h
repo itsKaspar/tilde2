@@ -2,9 +2,10 @@
 #define _BOID
 
 #include "ofMain.h" 
+#include "Particle.h" 
 
 #pragma once
-class Boid
+class Boid : public Particle
 {
 
 public:
@@ -20,17 +21,12 @@ public:
 
 	void draw();
 
-
-	glm::vec3 pos;
-	glm::vec3 vel;
-	glm::vec3 acc;
-
 	float maxForce = 0.1;
 	float maxSpeed = 4;
 
 	ofTexture mTex;
-	ofBoxPrimitive butterfly;
-	ofPlanePrimitive lWing ,rWing;
+	ofNode butterfly;
+	ofPlanePrimitive lWing, rWing;
 
 private:
 };

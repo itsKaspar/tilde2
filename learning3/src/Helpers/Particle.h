@@ -16,10 +16,14 @@ class Particle
 public:
 
 	Particle();
-	Particle(glm::vec3 p);
-	~Octree();
+	~Particle();
+
+	void update();
+	void debugDraw();
 
 	glm::vec3 pos;
+	glm::vec3 vel;
+	glm::vec3 acc;
 
 private:
 };

@@ -14,10 +14,16 @@
 #include "DLA.h"
 #include "Diffline.h"
 #include "SpaceColonization.h"
+#include "Collatz.h"
+//#include "LSystem.h"
+
 #include "Boids.h"
+#include "FluidSimulation.h"
+
 #include "SimplexTerrain.h"
 #include "Julia2D.h"
 #include "DomainWarping.h"
+
 #include "ShaderTest.h"
 #include "Test1.h"
 
@@ -211,11 +217,17 @@ Scene *Layer::CreateScene(SceneType Type)
 		return new DiffLine();
 	case Scene_SpaceColonization:
 		return new SpaceColonization();
+	case Scene_Collatz:
+		return new Collatz();
+	//case Scene_LSystem:
+		//return new LSystem();
 
 	// ##### Particle Systems
 
 	case Scene_Boids:
 		return new Boids();
+	case Scene_FluidSimulation:
+		return new FluidSimulation();
 
 	// ##### Shader Experimentations
 

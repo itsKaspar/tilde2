@@ -36,7 +36,7 @@ public:
 
 	// ##### Other Variables
 
-	vector<Boid> boids;
+	vector<shared_ptr<Boid>> boids;
 	Octree *octree;
 
 private:

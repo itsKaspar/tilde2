@@ -39,18 +39,13 @@ void SpaceColonization::setup() {
 
 	for (size_t i = 0; i < nLeaves; i++)
 	{	
-		float rX = ofRandom(-ofGetWidth() / 2, ofGetWidth() / 2);
-		float rY = ofRandom(-ofGetHeight() / 2, ofGetHeight() / 2);
-		float rZ = ofRandom(-ofGetWidth() / 2, ofGetWidth() / 2);
-
-		if (is3D) leaves.push_back(SCLeaf(ofVec3f(rX, rY, rZ)));
-		else leaves.push_back(SCLeaf(ofVec3f(rX, rY, 0)));
+		leaves.push_back(SCLeaf(is3D));
 	}
 
 	// # Initial Root Position
 
-	ofVec3f rootPosition = ofVec3f(0, 0, 0);
-	ofVec3f rootDirection = ofVec3f(0, 0, 0);
+	glm::vec3 rootPos(0, 0, 0);
+	glm::vec3 rootDir(0, 0, 0);
 
 	if (!isCentered)
 	{
@@ -58,30 +53,31 @@ void SpaceColonization::setup() {
 		float rY = ofRandom(-ofGetHeight() / 2, ofGetHeight() / 2);
 		float rZ = ofRandom(-ofGetWidth() / 2, ofGetWidth() / 2);
 		
-		if (is3D) rootPosition = ofVec3f(rX, rY, rZ);
-		else rootPosition = ofVec3f(rX, rY, 0);
+		if (is3D) rootPos = glm::vec3(rX, rY, rZ);
+		else rootPos = glm::vec3(rX, rY, 0);
 	}
 
 	// # Initial Root Direction
 	// get a random leaf and choose it as initial direction
 
 	int r = ofRandom(0, leaves.size()-1);
-	rootDirection = leaves[r].position -rootPosition;
-	rootDirection.normalize();     
+	rootDir = leaves[r].pos - rootPos;
+	rootDir = glm::normalize(rootDir);
 
 	// # Apply initial root position & direction
 
-	SCBranch root = SCBranch(rootPosition, rootDirection); 
+	SCBranch root = SCBranch(rootPos, rootDir); 
 
 	branches.push_back(root); // push root to array of branches
-	SCBranch current = SCBranch(rootPosition, rootDirection, true); // current branch is root
+	SCBranch current = SCBranch(rootPos, rootDir, true); // current branch is root
 
 	while (!closeEnough(current)) // if there are no leaves under the max distance
 	{
 		//std::cout << "value: " << current.parent->position << endl;
-		SCBranch trunk = SCBranch(current.position, current.direction, true);
+		SCBranch trunk = SCBranch(current.pos, current.dir, true);
 		branches.push_back(trunk);
 		current = trunk;
+		std::cout << "value: " << trunk.pos << endl;
 	}
 }
 
@@ -92,16 +88,14 @@ void SpaceColonization::update() {
 	for (size_t i = 0; i < leaves.size(); i++)
 	{
 		int closest = -1; // &
-		ofVec3f closestDir;
+		glm::vec3 closestDir;
 		float record = -1; // record distance so that if we find a close branch, maybe we can see if there is an even close branch
-		//int BranchFoundNum = -1;
-		//SCBranch closestBranch; // initialized weirdly but actually ok // &
 
 		// find the closest branch to every leaf
 		for (size_t j = 0; j < branches.size(); j++)
 		{
-			ofVec3f dir = leaves[i].position - branches[j].position;
-			float d = dir.length();
+			glm::vec3 dir = leaves[i].pos - branches[j].pos;
+			float d = glm::length(dir);
 			if (d < minDist)
 			{
 				// mark that leaf for deletion
@@ -114,19 +108,17 @@ void SpaceColonization::update() {
 			}
 			else if ((closest == -1) || (d < record)) // if a branch hasnt been found
 			{
-
 				closest = j; // get index of closest branch
 				closestDir = dir;
 				record = d;
-
 			}
 		}
 
 		//now for every leaf still, what do we do if closest branch isnt null ? (has been found )
 		if (closest != -1)
 		{
-			closestDir.normalize();
-			branches[closest].direction += closestDir;
+			closestDir = glm::normalize(closestDir);
+			branches[closest].dir += closestDir;
 			branches[closest].count++;
 		}
 	}
@@ -135,16 +127,15 @@ void SpaceColonization::update() {
 	{
 		if (branches[i].count > 0)
 		{
-			branches[i].direction /= (branches[i].count);
+			branches[i].dir /= (branches[i].count);
 
 			// add a tiny bit of random so it can skew towards lost leaves
-			ofVec3f rand = ofVec3f(ofRandom(-100,100), ofRandom(-100, 100), ofRandom(-100, 100));
+			//glm::vec3 rand(ofRandom(-100,100), ofRandom(-100, 100), ofRandom(-100, 100));
+			//rand = glm::normalize(rand) * (float)crispy; // limit magnitude with crispiness factor
+			//branches[i].dir += rand;
 
-			rand.limit(crispy); // limit magnitude with crispiness factor
-			branches[i].direction += rand;
-
-			branches[i].direction.normalize();
-			SCBranch newB = SCBranch(branches[i].position, branches[i].direction, true);
+			branches[i].dir = glm::normalize(branches[i].dir);
+			SCBranch newB = SCBranch(branches[i].pos, branches[i].dir, true);
 			branches.push_back(newB);
 			branches[i].reset();
 		}
@@ -154,40 +145,26 @@ void SpaceColonization::update() {
 }
 
 void SpaceColonization::draw() {
-
+	
 	line.clear();
 
 	if (drawLeaves)
 	{
 		for (size_t i = 0; i < leaves.size(); i++)
 		{
-			if (leaves[i].reached)
-			{
-				ofSetColor(c1, opacity);
-				ofDrawSphere(leaves[i].position.x, leaves[i].position.y, leaves[i].position.z, 3);
-			}
+			leaves[i].draw(c1, opacity);
 		}
 	}
 
 	for (size_t i = 0; i < branches.size(); i++)
 	{
+		branches[i].draw(c2, opacity);
 		ofSetColor(c2, opacity);
 
-		// Random Connections
-		//line.addVertex(branches[i].position.x, branches[i].position.y, branches[i].position.z);
+
 
 		// Normal Lines
 
-		if (branches[i].hasParent == true)
-		{
-			float initX = branches[i].position.x;
-			float initY = branches[i].position.y;
-			float initZ = branches[i].position.z;
-			float parentX = branches[i].parentposition.x;
-			float parentY = branches[i].parentposition.y;
-			float parentZ = branches[i].parentposition.z;
-			ofDrawLine(initX, initY, initZ, parentX, parentY, parentZ);
-		}
 	}
 
 	line = line.getResampledBySpacing(15);
@@ -198,13 +175,16 @@ void SpaceColonization::draw() {
 
 
 bool SpaceColonization::closeEnough(SCBranch b) {
+
 	for (size_t i = 0; i < leaves.size(); i++)
 	{
-		float d = b.position.distance(leaves[i].position);
+		float d = glm::distance(b.pos, leaves[i].pos);
 		if (d < maxDist) {
 			return true;
 		}
 	}
 	return false;
+
+	
 }
 

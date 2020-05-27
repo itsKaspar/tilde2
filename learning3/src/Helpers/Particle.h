@@ -8,7 +8,14 @@
 #ifndef _PARTICLE
 #define _PARTICLE
 
-#include "ofMain.h" 
+#include "ofMain.h"
+
+enum SpawnType
+{
+	Spawn_Random,
+	Spawn_SphereSurface,
+	Spawn_Box,
+};
 
 class Particle
 {
@@ -18,14 +25,28 @@ public:
 	Particle();
 	~Particle();
 
-	void update();
 	void debugDraw();
 
+	// Math
+	void update();
+	void applyVelocity(glm::vec3 vel, float maxVel = 0);
+
+	// Specific Forces
 	void alignment(vector<Particle> v, float maxForce, float maxSpeed);
 	void separation(vector<Particle> v, float maxForce, float maxSpeed);
 	void cohesion(vector<Particle> v, float maxForce, float maxSpeed);
 
+	glm::vec3 getRepulsion(vector<glm::vec3> nodes);
+	glm::vec3 getAttraction(vector<glm::vec3> nodes);
+
+	// Movements
+	void randomWalk(float walk = 1, bool is3D = false);
+
+	// Containments
 	void containment();
+
+	// Spawn
+	void spawn(SpawnType spawn, bool is3D);
 
 	glm::vec3 pos;
 	glm::vec3 vel;

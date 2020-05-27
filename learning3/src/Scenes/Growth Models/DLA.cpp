@@ -20,7 +20,6 @@ ofParameterGroup DLA::gui() {
 	params.add(sWalkers.set("Walkers Step", 0.1, 0.1, 1));
 	params.add(walkerRadius.set("Walkers Radius", 0.5, 0.1, 1));
 	params.add(displayWalkers.set("Display Walkers", true));
-	params.add(spawnMode.set("Spawn Mode", 3, 1, 3));
 	return params;
 }
 
@@ -45,22 +44,13 @@ void DLA::setup() {
 	fixed.push_back(RandomWalker(glm::vec3(0,0,0), walkerRadius, 0, 1, rndColorInterpol));
 	octree->insert(glm::vec3(0, 0, 0)); // insert first one into octree
 
-	// ##### Walker Spawn Mode
-
-	switch (spawnMode)
-	{
-		case 1: spawn = "random"; break;
-		case 2: spawn = "walls"; break;
-		case 3: spawn = "sphere"; break;
-		default: spawn = "random"; break;
-	}
 
 	// ##### Walkers Spawn
 
 	for (int i = 0; i < nWalkers; i++) {
 		// random color interpol
 		float rndColorInterpol = ofRandom(0, 1);
-		walkers.push_back(RandomWalker(spawn, walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
+		walkers.push_back(RandomWalker(walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
 	}
 }
 
@@ -75,7 +65,7 @@ void DLA::update() {
 	{
 		// random color interpol
 		float rndColorInterpol = ofRandom(0, 1);
-		walkers.push_back(RandomWalker(spawn, walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
+		walkers.push_back(RandomWalker(walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
 	}
 
 	// ##### Update Position
@@ -90,10 +80,10 @@ void DLA::update() {
 			aggregation.y - walkers[i].pos.y,
 			aggregation.z - walkers[i].pos.z
 		);
-		walkers[i].applyForce(towardsAgg*(towardsAggregation)/100);
+		walkers[i].applyVelocity(towardsAgg*(towardsAggregation)/100);
 
 		// Walk && Update
-		walkers[i].update();
+		walkers[i].update(is3D);
 	}
 
 	// ##### Update State
@@ -138,20 +128,7 @@ void DLA::draw() {
 	{
 		for (std::size_t i = 0; i != walkers.size(); ++i)
 		{
-			ofColor walkerColor = ofColor(ofColor(c1.r,c1.g,c1.b).lerp(ofColor(c2.r, c2.g, c2.b), walkers[i].ci),opacity);
-			//ofSetColor(c1.lerp(c2,walkers[i].ci), opacity);                                                               // CAN USE THIS INSTEAD ?
-
-			if (is3D) // 3D Render
-			{
-				material.setDiffuseColor(walkerColor);
-				material.begin();
-				ofDrawSphere(walkers[i].pos.x, walkers[i].pos.y, walkers[i].pos.z, walkers[i].radius); 
-			}
-			else // 2D Render
-			{
-				ofSetColor(walkerColor);       
-				ofDrawCircle(walkers[i].pos.x, walkers[i].pos.y, walkers[i].radius);
-			}
+			walkers[i].draw(c1, c2, opacity, is3D);
 		}
 	}
 
@@ -159,18 +136,6 @@ void DLA::draw() {
 
 	for (std::size_t i = 0; i != fixed.size(); ++i)
 	{
-		ofColor fixedColor = ofColor(ofColor(c1.r, c1.g, c1.b).lerp(ofColor(c2.r, c2.g, c2.b), fixed[i].ci), opacity);
-
-		if (is3D) // 3D Render
-		{
-			material.setDiffuseColor(fixedColor);
-			material.begin();
-			ofDrawSphere(fixed[i].pos.x, fixed[i].pos.y, fixed[i].pos.z, fixed[i].radius);
-		}
-		else // 2D Render
-		{
-			ofSetColor(fixedColor);
-			ofDrawCircle(fixed[i].pos.x, fixed[i].pos.y, fixed[i].radius);
-		}
+		fixed[i].draw(c1, c2, opacity, is3D);
 	}
 }

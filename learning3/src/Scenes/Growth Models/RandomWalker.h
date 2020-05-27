@@ -2,27 +2,24 @@
 #define _RANDOMWALKER
 
 #include "ofMain.h" 
-#include "ofxGui.h"
+#include "Particle.h"
 
 #pragma once
-class RandomWalker
+class RandomWalker : public Particle
 {
 public:
 	RandomWalker(glm::vec3 pos, float radius, float walk, float stick, float colorInterpol);
-	RandomWalker(string spawn, float radius, float walk, float stick, float colorInterpol, bool is3D);
-	void update();
-	void debugDraw();
-	void applyForce(ofVec3f force);
-	void walk();
+	RandomWalker(float radius, float walk, float stick, float colorInterpol, bool is3D);
+	void update(bool is3D);
+	void draw(ofColor c1, ofColor c2, float opacity, bool is3D);
 
-	glm::vec3 pos;
-	glm::vec3 vel;
 	float ci; // color interpolation
+
+	ofMaterial material;
 
 	float randomWalk;
 	float radius;
 	float sticky; 
-
 
 private:
 };

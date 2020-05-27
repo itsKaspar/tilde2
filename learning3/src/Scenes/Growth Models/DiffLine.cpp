@@ -60,7 +60,7 @@ void DiffLine::update() {
 	// NEED TO MAKE A FUNCTION TO UPDATE THE OCTREE INSTEAD OF REPLACING IT, JUST CHECHKING VECTOR POSITIONS
 	for (size_t i = 0; i < nodes.size(); i++)
 	{
-		octree->insert(glm::vec3(nodes[i].position.x, nodes[i].position.y, nodes[i].position.z)); // insert into octree
+		octree->insert(glm::vec3(nodes[i].pos.x, nodes[i].pos.y, nodes[i].pos.z)); // insert into octree
 	}
 }
 
@@ -76,14 +76,14 @@ void DiffLine::draw() {
 	std::vector<Node>::iterator it; // define a list iterator
 	for(it = nodes.begin(); it != nodes.end(); it++)
 	{
-		line.addVertex(it->position.x, it->position.y, it->position.z);
+		line.addVertex(it->pos.x, it->pos.y, it->pos.z);
 		//it->debugDraw();
 	} 
 
 	// if closed shape close using first point
 	ofSetColor(c2, opacity);
-	line.addVertex(nodes[0].position.x, nodes[0].position.y, nodes[0].position.z);
-	line.addVertex(nodes[1].position.x, nodes[1].position.y, nodes[1].position.z); // need to add this bc of smoothing makes me loose a point
+	line.addVertex(nodes[0].pos.x, nodes[0].pos.y, nodes[0].pos.z);
+	line.addVertex(nodes[1].pos.x, nodes[1].pos.y, nodes[1].pos.z); // need to add this bc of smoothing makes me loose a point
 
 	line = line.getResampledBySpacing(3);
 	line = line.getSmoothed(5);
@@ -101,8 +101,8 @@ void DiffLine::grow() {
 	// EdgeBreak Growth
 	for (std::size_t i = nodes.size(); i != 0; --i)
 	{
-		glm::vec3 v1 = nodes[i % nodes.size()].position;
-		glm::vec3 v2 = nodes[i - 1].position;
+		glm::vec3 v1 = nodes[i % nodes.size()].pos;
+		glm::vec3 v2 = nodes[i - 1].pos;
 
 		float distance = glm::distance(v1, v2);
 		if (distance > nodes[i - 1].maxEdgeLen) {
@@ -123,7 +123,7 @@ void DiffLine::grow() {
 
 void DiffLine::interpolate(int i, glm::vec3 v1, glm::vec3 v2) {
 	Node n = Node(glm::vec3(0,0,0));
-	n.position = glm::mix(v1, v2, 0.5);
+	n.pos = glm::mix(v1, v2, 0.5);
 	addNodeAt(i, n);
 }
 
@@ -133,15 +133,15 @@ void DiffLine::differentiate() {
 	std::vector<Node>::iterator i; // define a list iterator
 	for (std::size_t i = 0; i != nodes.size(); ++i)
 	{
-		glm::vec3 v1 = nodes[i].position;
-		glm::vec3 v2 = nodes[(i + 1) % nodes.size()].position;
+		glm::vec3 v1 = nodes[i].pos;
+		glm::vec3 v2 = nodes[(i + 1) % nodes.size()].pos;
 
 		// Construct Neighbours
 		//vector<glm::vec3> neighbours;
-		std::vector<Node>::iterator j;
+		//std::vector<Node>::iterator j;
 
 		// Look for nodes in range inside octree
-		vector<glm::vec3> found = octree->queryInRadius(nodes[i].position,50);
+		vector<glm::vec3> found = octree->queryInRadius(nodes[i].pos,50);
 
 		/*
 		for (std::size_t j = 0; j != nodes.size(); ++j)
@@ -152,33 +152,38 @@ void DiffLine::differentiate() {
 			}
 		}*/
 
+		vector<glm::vec3> neighbours;
+		neighbours.push_back(v1);
+		neighbours.push_back(v2);
+
 		// Get Forces
-		glm::vec3 attractionForce = nodes[i].attractionForce(v1, v2);
-		glm::vec3 repulsionForce = nodes[i].repulsionForce(found);
+		glm::vec3 attractionForce = nodes[i].getAttraction(neighbours);
+		glm::vec3 repulsionForce = nodes[i].getRepulsion(found);
 
 		// Apply Multipliers
 		attractionForce = attractionForce * xAttraction;
 		repulsionForce = repulsionForce * xRepulsion;
 
 		// Apply Forces in the Velocity cache
-		nodes[i].applyForce(attractionForce * 1);
-		nodes[i].applyForce(repulsionForce * 1);
+		nodes[i].applyVelocity(attractionForce, nodes[i].maxForce);
+		nodes[i].applyVelocity(repulsionForce, nodes[i].maxForce);
 	}
 
 	// Update Position only once all Velocity caches are calculated
 	for (std::size_t i = 0; i != nodes.size(); ++i)
 	{
 		nodes[i].update();
+		nodes[i].vel = glm::vec3(0);
 	}
 }
 
 void DiffLine::addNode(Node node) {
-	octree->insert(glm::vec3(node.position.x, node.position.y, node.position.z)); // insert into octree
+	octree->insert(glm::vec3(node.pos.x, node.pos.y, node.pos.z)); // insert into octree
 	nodes.push_back(node);
 }
 
 void DiffLine::addNodeAt(int i, Node node) {
-	octree->insert(glm::vec3(node.position.x, node.position.y, node.position.z)); // insert into octree
+	octree->insert(glm::vec3(node.pos.x, node.pos.y, node.pos.z)); // insert into octree
 	std::vector<Node>::iterator it = nodes.begin() + i;
 	nodes.insert(it, node);
 }

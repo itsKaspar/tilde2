@@ -9,16 +9,17 @@
 #define _SCLeaf
 
 #include "ofMain.h" 
-#include "ofxGui.h"
+#include "Particle.h"
 
-class SCLeaf
+class SCLeaf : public Particle
 {
 public:
 	SCLeaf();
-	SCLeaf(ofVec3f v);
+	SCLeaf(bool is3D);
+	SCLeaf(glm::vec3 v);
 	~SCLeaf();
 
-	ofVec3f position;
+	void draw(ofColor c, float opacity);
 	bool reached;
 
 private:

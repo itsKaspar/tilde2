@@ -40,7 +40,6 @@ public:
 	ofParameter<float> sWalkers;
 	ofParameter<float> walkerRadius;
 	ofParameter<bool> displayWalkers;
-	ofParameter<int> spawnMode;
 
 	// ##### Layer Settings
 	
@@ -61,7 +60,6 @@ public:
 
 	int walkerQty;
 	float walkerWalk;
-	string spawn;
 
 	Octree *octree;
 

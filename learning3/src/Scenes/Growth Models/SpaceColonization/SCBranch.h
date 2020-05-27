@@ -9,29 +9,31 @@
 #define _SCBranch
 
 #include "ofMain.h" 
-#include "ofxGui.h"
+#include "Particle.h"
 
-class SCBranch
+class SCBranch : public Particle
 {
 public:
 
 
-	SCBranch(ofVec3f pos, ofVec3f dir);
-	SCBranch(ofVec3f pos, ofVec3f dir, bool hasParent);
+	SCBranch(glm::vec3 pos, glm::vec3 dir);
+	SCBranch(glm::vec3 pos, glm::vec3 dir, bool hasParent);
 	~SCBranch();
-	ofVec3f next();
+	glm::vec3 next();
 	void reset();
 
-	ofVec3f parentposition;
-	ofVec3f position;
-	ofVec3f direction;
+	void draw(ofColor c, float opacity);
+
+	glm::vec3 parentpos;
+	glm::vec3 dir;
 	SCBranch *parent;
 
-	ofVec3f origDir;
+	glm::vec3 origDir;
 
 	int count;
 	float length;
 	bool hasParent;
+
 private:
 };
 

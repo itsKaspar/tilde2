@@ -11,6 +11,7 @@
 #include "ofMain.h" 
 #include "ofxGui.h"
 #include "Scene.h"
+#include "CollatzBranch.h"
 
 class Collatz : public Scene
 {
@@ -25,6 +26,8 @@ public:
 
 
 	// ##### Other Functions
+
+	int collatz(int n);
 
 	// ##### Helper Functions
 
@@ -46,6 +49,10 @@ public:
 	int opacity;
 
 	// ##### Other Variables
+
+	vector <CollatzBranch> branches;
+
+	int iter;
 
 private:
 };

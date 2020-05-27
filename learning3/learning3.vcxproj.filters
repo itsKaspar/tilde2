@@ -115,6 +115,9 @@
     <ClCompile Include="src\Scenes\Particle Systems\FluidSimulation\Fluid.cpp">
       <Filter>src\Scenes\Particle Systems\FluidSimulation</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scenes\Growth Models\Collatz\CollatzBranch.cpp">
+      <Filter>src\Scenes\Growth Models\Collatz</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -277,6 +280,9 @@
     </ClInclude>
     <ClInclude Include="src\Scenes\Particle Systems\FluidSimulation\Fluid.h">
       <Filter>src\Scenes\Particle Systems\FluidSimulation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\Growth Models\Collatz\CollatzBranch.h">
+      <Filter>src\Scenes\Growth Models\Collatz</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

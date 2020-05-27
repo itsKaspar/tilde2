@@ -20,7 +20,6 @@ SCLeaf::SCLeaf(glm::vec3 v) {
 SCLeaf::~SCLeaf() {
 }
 
-
 void SCLeaf::draw(ofColor c, float opacity)
 {
 	if (reached)

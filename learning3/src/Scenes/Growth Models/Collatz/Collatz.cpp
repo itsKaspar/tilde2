@@ -5,7 +5,6 @@
 
 #include "Collatz.h"
 
-
 void Collatz::reset() {
 
 }

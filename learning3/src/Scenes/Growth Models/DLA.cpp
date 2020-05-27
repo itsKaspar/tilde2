@@ -74,13 +74,9 @@ void DLA::update() {
 	{
 		// Calculate the force that draws them towards the aggregation
 		int randFixed = (int)ofRandom(0, fixed.size() - 1);
-		ofVec3f aggregation = fixed[randFixed].pos;
-		ofVec3f towardsAgg = ofVec3f( 
-			aggregation.x - walkers[i].pos.x,
-			aggregation.y - walkers[i].pos.y,
-			aggregation.z - walkers[i].pos.z
-		);
-		walkers[i].applyVelocity(towardsAgg*(towardsAggregation)/100);
+		glm::vec3 aggregation = fixed[randFixed].pos;
+		glm::vec3 towardsAgg = aggregation - walkers[i].pos;
+		walkers[i].applyVelocity(towardsAgg * (float)(towardsAggregation)/100);
 
 		// Walk && Update
 		walkers[i].update(is3D);

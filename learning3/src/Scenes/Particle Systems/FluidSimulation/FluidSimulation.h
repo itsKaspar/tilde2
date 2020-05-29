@@ -15,11 +15,14 @@
 #include "ofMain.h" 
 #include "ofxGui.h"
 #include "Scene.h"
+#include "Fluid.h"
 
 
 class FluidSimulation : public Scene
 {
 public:
+
+	void mouseMoved(ofMouseEventArgs & mouse);
 
 	// ##### Basic Functions
 
@@ -42,6 +45,10 @@ public:
 	ofColor c1;
 	ofColor c2;
 	int opacity;
+
+	// ##### General Fluid Setting
+
+	Fluid *fluid;
 
 private:
 };

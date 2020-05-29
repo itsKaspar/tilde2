@@ -7,7 +7,7 @@
 
 CollatzBranch::CollatzBranch(glm::vec3 p, glm::vec3 d) {
 	steps = 1;
-	length = 20 / log(steps);
+	length = 50 / log(steps);
 	hasParent = false;
 	pos = p;
 	dir = d;
@@ -18,7 +18,7 @@ CollatzBranch::CollatzBranch(glm::vec3 p, glm::vec3 d) {
 
 CollatzBranch::CollatzBranch(glm::vec3 d, CollatzBranch par) {
 	steps = par.steps + 1;
-	length = 20 / log(steps);
+	length = 50 / log(steps);
 	hasParent = true;
 	pos = par.pos + glm::normalize(par.dir) * length;
 	dir = d;
@@ -34,7 +34,8 @@ CollatzBranch::~CollatzBranch() {
 
 void CollatzBranch::draw(ofColor c, float opacity)
 {
-	ofSetColor(ofColor(c, (opacity/255)*100));
+	//ofSetColor(ofColor(c, (opacity/255)*100));
+	ofSetColor(c, opacity);
 	if (hasParent)
 	{
 		float initX = pos.x;

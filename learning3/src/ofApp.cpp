@@ -31,7 +31,7 @@ void ofApp::setup() {
 
 	for (size_t i = 0; i < NUMLAYERS; ++i)
 	{
-		layers[i] = new Layer(i + 1, Scene_Collatz);
+		layers[i] = new Layer(i + 1, Scene_FluidSimulation);
 		layers[i]->setup();
 		layers[i]->inTransition = false;
 	}

@@ -42,7 +42,7 @@ void Collatz::update() {
 	branches.push_back(root);
 	CollatzBranch current = root;
 
-	float angle = PI / 16;
+	float angle = PI / 32;
 	float r = 0.1;
 
 	// now iterate through the list
@@ -51,13 +51,23 @@ void Collatz::update() {
 
 		if (i % 2 == 0)
 		{
-			CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, -angle, glm::vec3(ofRandom(0, r),ofRandom(0,r), ofRandom(0, r))), current);
+			//CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, -angle, glm::vec3(ofRandom(0, r),ofRandom(0,r), ofRandom(0, r))), current);
+			CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, -angle, glm::vec3(0,0, 1)), current);
 			branches.push_back(newBranch);
 			current = newBranch;
 		}
 		else
 		{
-			CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, angle, glm::vec3(ofRandom(0, r), ofRandom(0, r), ofRandom(0, r))), current);
+			CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, angle, glm::vec3(1, 0, 0)), current);
+			if (i % 3 == 0) // special rule
+			{
+				CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, angle, glm::vec3(1, 0, 0)), current);
+			}
+			else
+			{
+				CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, angle, glm::vec3(0, 0, 1)), current);
+			}
+			//CollatzBranch newBranch = CollatzBranch(glm::rotate(current.dir, angle, glm::vec3(ofRandom(0, r), ofRandom(0, r), ofRandom(0, r))), current);
 			branches.push_back(newBranch);
 			current = newBranch;
 		}

@@ -53,8 +53,8 @@ public:
 
 	// ##### Particle Vectors
 
-	vector<RandomWalker> walkers;
-	vector<RandomWalker> fixed;
+	vector<std::shared_ptr<RandomWalker>> walkers;
+	vector<std::shared_ptr<RandomWalker>> fixed;
 
 	// ##### Other Variables
 
@@ -67,3 +67,5 @@ private:
 };
 
 #endif
+
+

@@ -36,8 +36,8 @@ public:
 	void separation(vector<Particle> v, float maxForce, float maxSpeed);
 	void cohesion(vector<Particle> v, float maxForce, float maxSpeed);
 
-	glm::vec3 getRepulsion(vector<glm::vec3> nodes);
-	glm::vec3 getAttraction(vector<glm::vec3> nodes);
+	glm::vec3 getRepulsion(vector<std::shared_ptr<Particle>> nodes);
+	glm::vec3 getAttraction(vector<std::shared_ptr<Particle>> nodes);
 
 	// Movements
 	void randomWalk(float walk = 1, bool is3D = false);

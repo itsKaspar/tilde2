@@ -41,16 +41,16 @@ void DLA::setup() {
 	// random color interpol
 
 	float rndColorInterpol = ofRandom(0, 1);
-	fixed.push_back(RandomWalker(glm::vec3(0,0,0), walkerRadius, 0, 1, rndColorInterpol));
-	octree->insert(glm::vec3(0, 0, 0)); // insert first one into octree
-
+	std::shared_ptr<RandomWalker> r = std::make_shared<RandomWalker>(glm::vec3(0, 0, 0), walkerRadius, 0, 1, rndColorInterpol); 
+	fixed.push_back(r);
+	octree->insert(r); // insert first one into octree
 
 	// ##### Walkers Spawn
 
 	for (int i = 0; i < nWalkers; i++) {
 		// random color interpol
 		float rndColorInterpol = ofRandom(0, 1);
-		walkers.push_back(RandomWalker(walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
+		walkers.push_back(std::make_shared<RandomWalker>(walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
 	}
 }
 
@@ -65,7 +65,7 @@ void DLA::update() {
 	{
 		// random color interpol
 		float rndColorInterpol = ofRandom(0, 1);
-		walkers.push_back(RandomWalker(walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
+		walkers.push_back(std::make_shared<RandomWalker>(walkerRadius, sWalkers, sticky, rndColorInterpol, is3D));
 	}
 
 	// ##### Update Position
@@ -74,12 +74,12 @@ void DLA::update() {
 	{
 		// Calculate the force that draws them towards the aggregation
 		int randFixed = (int)ofRandom(0, fixed.size() - 1);
-		glm::vec3 aggregation = fixed[randFixed].pos;
-		glm::vec3 towardsAgg = aggregation - walkers[i].pos;
-		walkers[i].applyVelocity(towardsAgg * (float)(towardsAggregation)/100);
+		glm::vec3 aggregation = fixed[randFixed]->pos;
+		glm::vec3 towardsAgg = aggregation - walkers[i]->pos;
+		walkers[i]->applyVelocity(towardsAgg * (float)(towardsAggregation)/100);
 
 		// Walk && Update
-		walkers[i].update(is3D);
+		walkers[i]->update(is3D);
 	}
 
 	// ##### Update State
@@ -87,7 +87,7 @@ void DLA::update() {
 	for (std::size_t i = walkers.size() - 1; i != -1; --i)
 	{
 		// find which particle is in range 
-		vector<glm::vec3> found = octree->queryInRadius(walkers[i].pos, walkers[i].radius * 2 + 1);
+		vector<std::shared_ptr<Particle>> found = octree->queryInRadius(walkers[i], walkers[i]->radius * 2 + 1);
 
 		for (std::size_t j = found.size() - 1; j != -1; --j) // go through every fixed/dead particles
 		{
@@ -98,13 +98,13 @@ void DLA::update() {
 			else {stick = false;}
 
 			// Calculate Distance
-			float distance = glm::distance(walkers[i].pos, found[j]); // calculate the distance between them
+			float distance = glm::distance(walkers[i]->pos, found[j]->pos); // calculate the distance between them
 
-			if (distance < (walkers[i].radius * 2) && stick) // if the distance is small enough
+			if (distance < (walkers[i]->radius * 2) && stick) // if the distance is small enough
 			{
-				walkers[i].randomWalk = 0; // make it dead
+				walkers[i]->randomWalk = 0; // make it dead
 				fixed.push_back(walkers[i]); // put it in the fixed/dead vector
-				octree->insert(walkers[i].pos); // insert into octree
+				octree->insert(walkers[i]); // insert into octree
 				walkers.erase(walkers.begin() + i); // take it out from the main alive vector
 
 				break;
@@ -124,7 +124,7 @@ void DLA::draw() {
 	{
 		for (std::size_t i = 0; i != walkers.size(); ++i)
 		{
-			walkers[i].draw(c1, c2, opacity, is3D);
+			walkers[i]->draw(c1, c2, opacity, is3D);
 		}
 	}
 
@@ -132,6 +132,6 @@ void DLA::draw() {
 
 	for (std::size_t i = 0; i != fixed.size(); ++i)
 	{
-		fixed[i].draw(c1, c2, opacity, is3D);
+		fixed[i]->draw(c1, c2, opacity, is3D);
 	}
 }

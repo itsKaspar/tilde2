@@ -31,8 +31,8 @@ public:
 	void grow();
 	void differentiate();
 
-	void addNode(Node node);
-	void addNodeAt(int i, Node node);
+	void addNode(std::shared_ptr<Node> n);
+	void addNodeAt(int i, std::shared_ptr<Node> n);
 
 	// ##### Helper Functions
 
@@ -70,7 +70,8 @@ public:
 	float xRepulsion = 1;
 
 	ofPolyline line;
-	vector<Node> nodes;
+
+	vector<std::shared_ptr<Node>> nodes;
 
 	Octree *octree;
 

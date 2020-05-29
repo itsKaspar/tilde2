@@ -105,24 +105,24 @@ void Particle::containment()
 // ##### Differential Line Growth
 
 // # exponentially decreasing influence depending on distance                                                  // Haven't added this yet ! could be useful in some other cases
-glm::vec3 Particle::getAttraction(vector<glm::vec3> neighbours) {
+glm::vec3 Particle::getAttraction(vector<std::shared_ptr<Particle>> neighbours) {
 	glm::vec3 attractionForce; // don't need to divide by two again because we're normalizing;
-	for (glm::vec3 v : neighbours)
+	for (std::shared_ptr<Particle> v : neighbours)
 	{
-		attractionForce += v;
+		attractionForce += v->pos;
 	}
 	attractionForce = glm::normalize(attractionForce);
 	return attractionForce;
 }
 
 // # exponentially decreasing influence depending on distance
-glm::vec3 Particle::getRepulsion(vector<glm::vec3> closeby) {
+glm::vec3 Particle::getRepulsion(vector<std::shared_ptr<Particle>> closeby) {
 	glm::vec3 repulsionForce;
 
-	for (glm::vec3 v : closeby)
+	for (std::shared_ptr<Particle> v : closeby)
 	{
-		float d = glm::distance(v, pos);
-		glm::vec3 diff = (pos - v) / exp(d);
+		float d = glm::distance(v->pos, pos);
+		glm::vec3 diff = (pos - v->pos) / exp(d);
 		repulsionForce += diff;
 	}
 	//repulsionForce /= neighbours.size(); //dont need to do that anymore because Im normalizing
